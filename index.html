@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> Dangerfield Desktop Prototype </title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+    
+<body>
+ <!-- Navigation, search, cart, and wishlist buttons.-->
+ <header class="site-header">
+    <button class="icon-btn" id="menuBtn" >☰</button>
+    <button class="icon-btn" data-page="search" >⌕</button>
+    <button class="brand" data-page="home">DANGERFIELD</button>
+    <nav class="desktop-nav" aria-label="Main navigation">
+        <button data-page="Home">Home</button>
+        <button data-page="Shop">Shop All</button>
+        <button data-filter="Sale">Sale</button>
+        <button data-filter="Dress">Dresses</button>
+        <button data-filter="Mens">Mens</button>
+    </nav>
+        <button class="icon-btn" data-page="Cart" >🛒<span id="cartCount">0</span></button>
+        <button class="icon-btn" >♡</button>
+</header>
+
+ <!--Mobile side menu-->
+ <aside class="side-menu" id="sideMenu">
+    <button class="close-btn" id="closeMenu">×</button>
+    <button data-page="home">Home</button>
+    <button data-page="shop">Shop All</button>
+    <button data-filter="Sale">Sale</button>
+    <button data-filter="Dress">Dresses</button>
+    <button data-filter="Mens">Mens</button>
+ </aside>
+ 
+<main>
+ <!--Home Page-->
+ <!--Hero-->
+ <section class="page active" id="homePage">
+    <section class="hero">
+        <div class="hero-copy">
+        <h1>Find Your Look </h1>
+        <p>Express your style with bold, alternative fashion.</p>
+        </div>
+        <div>
+            <img src="ASSETS/01.jpg" alt="img1" width="332" height="511">
+            <img src="ASSETS/02.png" alt="img2" width="332" height="511"> 
+        </div>
+        <div class="hero-actions">
+            <button class="primary" data-page="shop">View All</button>
+            <button class="secondary" data-filter="New">New Arrivals</button>
+        </div>
+    </section>
+
+<!--Shop by Category-->
+<section class="category-panel">
+    <h2>Shop by Category</h2>
+    <div class="category-grid">
+        <button data-filter="Sale">Sale</button>
+        <button data-filter="Bottoms">Bottoms</button>
+        <button data-filter="Dress"> Dresses</button>
+        <button data-filter="Tops">Tops</button>
+        <button data-filter="Outerwear">Outerwear</button>
+        <button data-filter="Shoes">Shoes</button>
+    </div>
+</section>
+
+<section class="collection-grid">
+    <h1>OUR COLLECTIONS</h1>
+    <article class="collection-card" data-filter="Womens"><span>Womens</span></article>
+    <article class="collection-card mens" data-filter="Mens"><span>Mens</span></article>
+    <article class="collection-card kids" data-filter="Kids"><span>Kids</span></article>
+</section>
+
+<section class="product-section">
+    <div class="section-title">
+        <h1>New Arrivals 20% Off</h1>
+        <button data-page="shop">Shop All →</button>
+    </div>
+    <div class="product-row" id="homeProducts"></div>
+</section>
+
+<!--Search Page-->
+<section class="page search-page" id="searchPage">
+    <button class="back-link" data-page="home">‹ Back</button>
+    <h1>Search</h1>
+    <form id="searchForm" class="search-box">
+        <input id="searchInput" type="search" placeholder="Try: dress, mens, sale"/>
+        <button class="primary" type="submit">Search</button>
+    </form>
+    <h2>Trending Searches</h2>
+    <div>
+        <button data-search="Dress">Dress</button>
+        <button data-search="Mens">Mens</button>
+        <button data-search="Sale">Sale Items</button>
+        <button data-search="Shoes">Shoes</button>
+        <button data-search="Outerwear">Outerwear</button>
+    </div>
+</section>
+
+<!--Shopping Page-->
+<!--Sort-->
+<section class="page" id="shopPage">
+    <div class="shop-top">
+        <p class="breadcrumb">Home › Shop All</p>
+        <h1 id="shopTitle">Shop All</h1>
+        <div class="shop-controls">
+            <button id="toggleFilters">Filters</button>
+            <select id="sortSelect" >
+                <option value="featured">Sort: Featured</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
+            </select>
+        </div>
+    </div>
+<!--Filters-->
+    <div class="shop-layout">
+        <aside class="filters" id="filters">
+        <h2>Filters by</h2>
+        <label><input type="checkbox" value="Dress"/>Dresses</label>
+        <label><input type="checkbox" value="Tops"/>Tops</label>
+        <label><input type="checkbox" value="Bottoms"/>Bottoms</label>
+        <label><input type="checkbox" value="Mens"/>Mens</label>
+        <label><input type="checkbox" value="Sale"/>Sale</label>
+        <button class="secondary" id="clearFilters">Clear</button>
+        </aside>
+        <div class="product-grid" id="shopProducts"></div>
+    </div>
+    <div class="pagination"><button>1</button><button>2</button></div> 
+</section>
+
+<section class="page" id="productPage">
+    <P> Home › Shop All ›</P>
+    <div class="product-detail">
+        <div class="main-image" id="mainProductImage"></div>
+    </div>
+</section>
+
+    </main>
+
+    <script src="script.jss"></script>
+    </body>
+</html>

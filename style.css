@@ -1,0 +1,17 @@
+:root{
+    --blue:#1f7180;
+    --light:#e5f9ff;
+    --gold:#bb781c;
+    --white:#ffffff;
+    --grey:#d9d9d9;
+    --black:#050505;
+    --red:#ff0000;
+}
+
+/* Background & Font.*/
+body{
+    margin: 0;
+    font-family: "Arial Narrow",Arial, sans-serif;
+    background: var(--light);
+    color: var(--black)
+}
