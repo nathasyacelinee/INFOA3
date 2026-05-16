@@ -10,7 +10,6 @@
 <body>
  <!-- Navigation, search, cart, and wishlist buttons.-->
  <header class="site-header">
-    <h1>test</h1>
     <button class="icon-btn" id="menuBtn" >☰</button>
     <button class="icon-btn" data-page="search" >⌕</button>
     <button class="brand" data-page="home">DANGERFIELD</button>
@@ -67,6 +66,7 @@
     </div>
 </section>
 
+<!--Collections: Womens, Mens, Kids-->
 <section class="collection-grid">
     <h1>OUR COLLECTIONS</h1>
     <article class="collection-card" data-filter="Womens"><span>Womens</span></article>
@@ -74,6 +74,7 @@
     <article class="collection-card kids" data-filter="Kids"><span>Kids</span></article>
 </section>
 
+<!--New Arrivals-->
 <section class="product-section">
     <div class="section-title">
         <h1>New Arrivals 20% Off</h1>
@@ -131,14 +132,75 @@
     <div class="pagination"><button>1</button><button>2</button></div> 
 </section>
 
+<!--Product Page: information of each product-->
 <section class="page" id="productPage">
     <P> Home › Shop All ›</P>
     <div class="product-detail">
         <div class="main-image" id="mainProductImage"></div>
     </div>
+    <article class="detail-card">
+        <h1 id="detailName"></h1>
+        <p class="price" id="detailPrice"></p>
+        <label>Size
+            <select id="sizeSelect"><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+        </label>
+        <label>Quantity
+            <input id="qtyInput" type="number" min="1" value="1" />
+        </label>
+        <button id="addCartBtn">Add to Cart</button>
+        <button id="buyNowBtn">Buy Now</button>
+        <h3>Product Details</h3>
+        <p>A timeless tartan with a rebellious edge, this iconic mini dress is not asking, but demanding attention</p>
+    </article>
 </section>
 
+<!--Shopping Cart Page-->
+<section class="page" id="cartPage">
+    <button class="back-link" data-page="shop">‹ Continue Shopping</button>
+    <h1>My Cart</h1>
+    <div class="cart-layout">
+        <div id="cartItems" class="cart-items"></div>
+        <aside class="cart-summary">
+            <label>Discount code<input id="discountCode" placeholder="Enter code"/></label>
+            <button id="applyDiscount">Apply</button>
+            <p>Subtotal <strong id="subtotal">$0</strong></p>
+            <p>Shipping Fee <strong>$10</strong></p>
+            <p>Total <strong id="total">$0</strong></p>
+            <button class="primary" data-page="payment">Pay Now</button>
+        </aside>
+    </div>
+    <section class="product-section"><h1>Recommended for you</h1></section>
+</section>
+
+<!--Payment Page-->
+<section class="page payment-page" id="paymentPage">
+    <button class="back-link" data-page="cart">‹ My Cart</button>
+    <form class="payment-form" id="paymentForm">
+    <h1>Payment Details</h1>
+    <label> Name on card<input required placeholder="Name on card"/></label>
+    <label> Card number<input required placeholder="1234 1234 1234 1234"/></label>
+    <div class="two-col"><label>CVV<input required placeholder="123"/></label></div>
+    <label>Billing address<input required placeholder="123 Melbourne St"/></label>
+    <div class="two-col"><label>State</label><input required /></div></div>
+    <button class="primary" type="submit">Check Out</button>
+    </form>
+</section>
+
+<!--Confirmation Page-->
+<section class="page confirmation-page" id="confirmationPage">
+    <button class="back-link" data-page="home">‹ Back</button>
+    <h1>Payment Confirmed!</h1>
+    <button data-page="home">Find out more</button>
+</section>
     </main>
+
+    <!--Footer, newsletter sign up-->
+    <footer>
+       <div><h2>About Us</h2><a>Store Locations</a><a>Terms & Conditions</a><a>Social + Ethical</a><a>Climate Action</a><a>Terms of Service</a></div>
+       <div><h2>NEED HELP?</h2><a>Contact Us</a><a>Support + FAQs</a><a>Delivery & Returns</a><a>Size Guide</a><a>Refund Policy</a><a>Privacy Policy</a></div>
+       <div><h2>QUICK LINKS</h2><a>Careers</a><a>Gift Cards</a><a>Locations</a></div>
+       <form><h2>Subscribe to our newsletter</h2><p>To get off your first order!</p><input placeholder="Email address" /><button>Submit</button></form>
+    </footer>
 
     <script src="script.jss"></script>
     </body>
