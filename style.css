@@ -39,7 +39,7 @@ button:hover{
     background: #e5f9ff;
     border-bottom: solid var(--black) 2px;}
 
-
+/* Dangergield logo, returns to the home page */
 .brand{
     font-weight: 800;
     letter-spacing: -2px;
@@ -76,6 +76,7 @@ button:hover{
 }
 .desktop-nav button{
     border: 0;
+    box-shadow: none;
     background: transparent;
     text-transform: uppercase;
 }
@@ -85,8 +86,28 @@ button:hover{
     top: 0;
     left: 200px;
     width: 240px;
-    
+    background: var(--light);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 }
+
+.side-menu.open{left: 0;}
+.close-btn{
+    align-self: flex-end;
+}
+
+.hero{
+    min-height: 520px;
+    color: white;
+    border: 2px solid var(--black);
+    display: grid;
+    gap: 30px;
+    align-items: center;
+    position: relative;
+}
+
 
 footer{
     display:grid;
