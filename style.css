@@ -81,6 +81,7 @@ button:hover{
     text-transform: uppercase;
 }
 
+/* Side lists*/
 .side-menu{
     position: fixed;
     top: 0;
@@ -88,16 +89,14 @@ button:hover{
     width: 240px;
     height: 100vh;
     background: var(--light);
+    border-right: 2px solid var(--black);
+    z-index: 30;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 14px;
-}
-
+    gap: 14px;}
 .side-menu.open{left: 0;}
-.close-btn{
-    align-self: flex-end;
-}
+.close-btn{align-self: flex-end;}
 
 .hero{
     min-height: 520px;
