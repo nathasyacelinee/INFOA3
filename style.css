@@ -100,6 +100,8 @@ button:hover{
 
 .hero{
     min-height: 520px;
+    background: linear-gradient(rgba(20,100,115,.84),rgba(20,100,115,.84)),
+    radial-gradient(circle at 50% 30%, #7bc7d0 0 12%, transparent 10%)
     color: white;
     border: 2px solid var(--black);
     display: grid;
