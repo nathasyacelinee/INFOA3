@@ -84,8 +84,9 @@ button:hover{
 .side-menu{
     position: fixed;
     top: 0;
-    left: 200px;
+    left: -260px;
     width: 240px;
+    height: 100vh;
     background: var(--light);
     padding: 20px;
     display: flex;
