@@ -7,6 +7,7 @@
     --grey:#d9d9d9;
     --black:#050505;
     --red:#ff0000;
+    --shadow:0 14px 32px rgba(0,0,0,.22);
 }
 
 /* Background & Font.*/
@@ -101,14 +102,23 @@ button:hover{
 .hero{
     min-height: 520px;
     background: linear-gradient(rgba(20,100,115,.84),rgba(20,100,115,.84)),
-    radial-gradient(circle at 50% 30%, #7bc7d0 0 12%, transparent 10%)
+    radial-gradient(circle at 50% 30%, #7bc7d0 0 12%, transparent 10%),
+    radial-gradient(circle at 30% 55%, #0c4651 0 22%, transparent 20%);
     color: white;
     border: 2px solid var(--black);
+    box-shadow: var(--shadow);
     display: grid;
+    grid-template-columns: 1fr 420px;
     gap: 30px;
     align-items: center;
+    padding: 60px;
     position: relative;
+    overflow: hidden;
 }
+
+main{min-height: 70vh;}
+.page{display: none; padding: 32px clamp(20px,4vw,70px);}
+.page.active{display: block}
 
 
 footer{
