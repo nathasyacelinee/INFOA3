@@ -228,6 +228,7 @@ const products = [
     }
 ]
 
+/*Side Menu*/
 document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('sideMenu').classList.add('open'));
 document.getElementById ('closeMenu').addEventListener('click', () => document.getElementById('sideMenu').classList.remove('open'));
 
@@ -237,3 +238,9 @@ function showPage(pageName){
     window.scrollTo({top:0, behavior:'smooth'})
     document.getElementById('sideMenu').classList.remove('open');
 };
+
+/* Current category/ search items shown on the page */
+let activeFilter = '';
+let selectedProduct = products[0];
+const pages= document.querySelectorAll('.page');
+const cartCount= document.getElementById('cartCount');
