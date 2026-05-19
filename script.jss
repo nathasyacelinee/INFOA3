@@ -63,6 +63,40 @@ const products = [
         {src: "ASSETS/ShineBrightGothPant3.png", alt: "Shine Bright Goth Pant 4"},
         {src: "ASSETS/ShineBrightGothPant4.png", alt: "Shine Bright Goth Pant 5"}
     }
+    {
+    id: "shine-goth-skort",
+    name: "Shine Bright Goth Skort",
+    category: 'Skort Womens Goth Mini',
+    price: 67.2, oldPrice: 84,
+    sizes: ["XS","S","M","L","XL"],
+    code: "BGFAB135",
+    description: "A timeless tartan with a rebellious edge, this iconic pant is not asking, but demanding attention.",
+    details: [
+        "Tartan Mini Skort","Fitted Waistband with Elasticated Back","Belt with Eyelets and a large buckle","Zip Closure at the Back","Eyelet Strap Details","Panneled Skirt","Shorts under layer","Designed in Naarm/ Melbourne by our apparel design team","Made from cotton fabric","Available in Multi"],
+    gallery: [
+        {src: "ASSETS/ShineGothSkort.png", alt: "Shine Bright Goth Skort"},
+        {src: "ASSETS/ShineGothSkort2.png", alt: "Shine Bright Goth Skort 2"},
+        {src: "ASSETS/ShineGothSkort3.png", alt: "Shine Bright Goth Skort 3"},
+        {src: "ASSETS/ShineGothSkort4.png", alt: "Shine Bright Goth Skort 4"},
+        {src: "ASSETS/ShineGothSkort5.png", alt: "Shine Bright Goth Skort 5"}
+    }
+    {
+    id: "swarm-goth-cardigan",
+    name: "Swarm Goth Cardigan",
+    category: 'Cardigan Womens Goth Pink Cardigan',
+    price: 78.4, oldPrice: 98,
+    sizes: ["XS","S","M","L","XL"],
+    code: "BGFAB152",
+    description: "Flutter Into Trouble With The 'Swarm Goth' Cardi. This Piece Blends Soft Nostalgia With A Bold Edge. Crafted For Comfort With A Flattering Silhouette, It’s Perfect For Any Occasion.",
+    details: [
+        "Gradient Knit Cardigan","Relaxed Fit","Long Slightly Bellowed Sleeves","Round Neckline","Slightly Cropped","Buttons Down Front","Knitted from acrylic blend yarn","Designed in Naarm/ Melbourne by our apparel design team","Available in Multi"],
+    gallery: [
+        {src: "ASSETS/SwarmGothCardigan.png", alt: "Swarm Goth Cardigan"},
+        {src: "ASSETS/SwarmGothCardigan2.png", alt: "Swarm Goth Cardigan 2"},
+        {src: "ASSETS/SwarmGothCardigan3.png", alt: "Swarm Goth Cardigan 3"},
+        {src: "ASSETS/SwarmGothCardigan4.png", alt: "Swarm Goth Cardigan 4"},
+        {src: "ASSETS/SwarmGothCardigan5.png", alt: "Swarm Goth Cardigan 5"}
+    }
 ]
 
 document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('sideMenu').classList.add('open'));
