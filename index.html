@@ -137,7 +137,9 @@
 <section class="page" id="productPage">
     <p class="breadcrumb"> Home › Shop All › <span id="productCrumb"></span></p>
     <div class="product-detail">
+        <div class="gallery">
         <div class="main-image" id="mainProductImage"></div>
+        <div class="thumbs"><button></button><button></button><button></button></div>
     </div>
     <article class="detail-card">
         <h1 id="detailName"></h1>
@@ -148,11 +150,12 @@
         <label>Quantity
             <input id="qtyInput" type="number" min="1" value="1" />
         </label>
-        <button id="addCartBtn">Add to Cart</button>
-        <button id="buyNowBtn">Buy Now</button>
+        <button class="primary" id="addCartBtn">Add to Cart</button>
+        <button class="secondary"id="buyNowBtn">Buy Now</button>
         <h3>Product Details</h3>
         <p>A timeless tartan with a rebellious edge, this iconic mini dress is not asking, but demanding attention</p>
     </article>
+    </div>
 </section>
 
 <!--Shopping Cart Page-->
@@ -163,14 +166,14 @@
         <div id="cartItems" class="cart-items"></div>
         <aside class="cart-summary">
             <label>Discount code<input id="discountCode" placeholder="Enter code"/></label>
-            <button id="applyDiscount">Apply</button>
+            <button class="secondary" id="applyDiscount">Apply</button>
             <p>Subtotal <strong id="subtotal">$0</strong></p>
             <p>Shipping Fee <strong>$10</strong></p>
             <p>Total <strong id="total">$0</strong></p>
             <button class="primary" data-page="payment">Pay Now</button>
         </aside>
     </div>
-    <section class="product-section"><h1>Recommended for you</h1></section>
+    <section class="product-section"><h1>Recommended for you</h1><div class="product-row" id="recommendedProdoucts"></div></section>
 </section>
 
 <!--Payment Page-->
