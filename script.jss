@@ -237,10 +237,15 @@ document.getElementById('toggleFilters').addEventListener('click', () => documen
 function showPage(pageName){
     pages.forEach(page => page.classList. remove('active'));
     document.getElementById(pageName + 'Page').classList.add('active');
-    window.scrollTo({top:0, behavior:'smooth'})
+    window.scrollTo({top:0, behavior:'smooth'});
     document.getElementById('sideMenu').classList.remove('open');
     if(pageName === 'cart') renderCart();
 }
+
+document.body.addEventListener('click', event => {
+    const pageBtn= event.target.closest('[data-page]');
+    if (pageBtn) showPage(pageBtn.dataset.page);
+});
 
 /* Current category/ search items shown on the page */
 let cart = JSON.parse(localStorage.getItem("dangerfieldCart")) || [];
