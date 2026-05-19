@@ -63,7 +63,7 @@ const products = [
         {src: "ASSETS/ShineBrightGothPant3.png", alt: "Shine Bright Goth Pant 4"},
         {src: "ASSETS/ShineBrightGothPant4.png", alt: "Shine Bright Goth Pant 5"}
     ]
-    }
+    },
     {
     id: "shine-goth-skort",
     name: "Shine Bright Goth Skort",
@@ -81,7 +81,7 @@ const products = [
         {src: "ASSETS/ShineGothSkort4.png", alt: "Shine Bright Goth Skort 4"},
         {src: "ASSETS/ShineGothSkort5.png", alt: "Shine Bright Goth Skort 5"}
     ]
-    }
+    },
     {
     id: "swarm-goth-cardigan",
     name: "Swarm Goth Cardigan",
@@ -99,7 +99,7 @@ const products = [
         {src: "ASSETS/SwarmGothCardigan4.png", alt: "Swarm Goth Cardigan 4"},
         {src: "ASSETS/SwarmGothCardigan5.png", alt: "Swarm Goth Cardigan 5"}
     ]
-    }
+    },
     {
     id: "luna-tartan-midi-skirt",
     name: "Luna Goth Tartan Midi Skirt",
@@ -117,7 +117,7 @@ const products = [
         {src: "ASSETS/LunaGothMidiSkirt4.png", alt: "Luna Goth Midi Skirt 4"},
         {src: "ASSETS/LunaGothMidiSkirt5.png", alt: "Luna Goth Midi Skirt 5"}
     ]
-    }
+    },
     {
     id: "faux-suede-cross-mj",
     name: "Faux Suede Cross Mary Janes",
@@ -135,7 +135,7 @@ const products = [
         {src: "ASSETS/FauxSuedeCrossMJ4.png", alt: "Faux Suede Cross Mary Janes 4"},
         {src: "ASSETS/FauxSuedeCrossMJ5.png", alt: "Faux Suede Cross Mary Janes 5"}
     ]
-    }
+    },
     {
     id: "swarm-gradient-cardigan",
     name: "Swarm Gradient Cardigan",
@@ -153,7 +153,7 @@ const products = [
         {src: "ASSETS/SwarmGradientCardi4.png", alt: "Swarm Gradient Cardi 4"},
         {src: "ASSETS/SwarmGradientCardi5.png", alt: "Swarm Gradient Cardi 5"}
     ]
-    }
+    },
     {
     id: "medieval-fairisle-knit",
     name: "Medieval Fairisle Knit",
@@ -171,7 +171,7 @@ const products = [
         {src: "ASSETS/MedievalKnit4.png", alt: "Medieval Knit 4"},
         {src: "ASSETS/MedievalKnit5.png", alt: "Medieval Knit 5"}
     ]
-    }
+    },
     {
     id: "grace-corset-overlay",
     name: "Your Grace Corset Overlay",
@@ -189,7 +189,7 @@ const products = [
         {src: "ASSETS/YourGraceCorset4.png", alt: "Your Grace Corset Overlay 4"},
         {src: "ASSETS/YourGraceCorset5.png", alt: "Your Grace Corset Overlay 5"}
     ]
-    }
+    },
     {
     id: "grace-goth-corset-top",
     name: "Grace Goth Corset Top",
@@ -207,7 +207,7 @@ const products = [
         {src: "ASSETS/GraceGothTop4.png", alt: "Grace Goth Corset Top 4"},
         {src: "ASSETS/GraceGothTop5.png", alt: "Grace Goth Corset Top 5"}
     ]
-    }
+    },
     {
     id: "joust-midi-skirt",
     name: "Joust Midi Skirt",
@@ -236,4 +236,4 @@ function showPage(pageName){
     document.getElementById(pageName + 'Page').classList.add('active');
     window.scrollTo({top:0, behavior:'smooth'})
     document.getElementById('sideMenu').classList.remove('open');
-}
+};
