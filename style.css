@@ -125,8 +125,24 @@ main{min-height: 70vh;}
 .page.active{display: block}
 
 .hero:after{content:""; position: absolute;}
+.hero-copy{position: relative;z-index: 1;}
 
-
+.collection-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin: 30px 0;
+}
+.collection-card{
+    height: 320px;
+    background: linear-gradient(100deg, #ffffff,#dedede);
+    border: solid var(--black) 1px;
+    box-shadow: var(--shadow);
+    display: grid;
+    place-items: end center;
+    padding: 20;
+    position: relative;
+}
 footer{
     display:grid;
     grid-template-columns: repeat(4, 2fr);
