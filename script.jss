@@ -232,15 +232,23 @@ const products = [
 document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('sideMenu').classList.add('open'));
 document.getElementById ('closeMenu').addEventListener('click', () => document.getElementById('sideMenu').classList.remove('open'));
 
+document.getElementById('toggleFilters').addEventListener('click', () => document.getElementById('filters').classList.toggle('open'));
+
 function showPage(pageName){
     pages.forEach(page => page.classList. remove('active'));
     document.getElementById(pageName + 'Page').classList.add('active');
     window.scrollTo({top:0, behavior:'smooth'})
     document.getElementById('sideMenu').classList.remove('open');
-};
+    if(pageName === 'cart') renderCart();
+}
 
 /* Current category/ search items shown on the page */
 let activeFilter = '';
 let selectedProduct = products[0];
 const pages= document.querySelectorAll('.page');
 const cartCount= document.getElementById('cartCount');
+
+renderHome();
+renderShop();
+renderRecommended();
+saveCart();
