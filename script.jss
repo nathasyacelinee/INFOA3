@@ -243,6 +243,7 @@ function showPage(pageName){
 }
 
 /* Current category/ search items shown on the page */
+let cart = JSON.parse(localStorage.getItem("dangerfieldCart")) || [];
 let activeFilter = '';
 let selectedProduct = products[0];
 const pages= document.querySelectorAll('.page');

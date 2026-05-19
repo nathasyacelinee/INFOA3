@@ -143,6 +143,8 @@ main{min-height: 70vh;}
     padding: 20;
     position: relative;
 }
+
+
 footer{
     display:grid;
     grid-template-columns: repeat(4, 2fr);
