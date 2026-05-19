@@ -62,6 +62,7 @@ const products = [
         {src: "ASSETS/MidnightGoshMeshTop3.png", alt: "Shine Bright Goth Pant 3"},
         {src: "ASSETS/ShineBrightGothPant3.png", alt: "Shine Bright Goth Pant 4"},
         {src: "ASSETS/ShineBrightGothPant4.png", alt: "Shine Bright Goth Pant 5"}
+    ]
     }
     {
     id: "shine-goth-skort",
@@ -79,6 +80,7 @@ const products = [
         {src: "ASSETS/ShineGothSkort3.png", alt: "Shine Bright Goth Skort 3"},
         {src: "ASSETS/ShineGothSkort4.png", alt: "Shine Bright Goth Skort 4"},
         {src: "ASSETS/ShineGothSkort5.png", alt: "Shine Bright Goth Skort 5"}
+    ]
     }
     {
     id: "swarm-goth-cardigan",
@@ -96,6 +98,43 @@ const products = [
         {src: "ASSETS/SwarmGothCardigan3.png", alt: "Swarm Goth Cardigan 3"},
         {src: "ASSETS/SwarmGothCardigan4.png", alt: "Swarm Goth Cardigan 4"},
         {src: "ASSETS/SwarmGothCardigan5.png", alt: "Swarm Goth Cardigan 5"}
+    ]
+    }
+    {
+    id: "luna-tartan-midi-skirt",
+    name: "Luna Goth Tartan Midi Skirt",
+    category: 'Skirt Womens Goth Pink Midi',
+    price: 78.4, oldPrice: 98,
+    sizes: ["XS","S","M","L","XL"],
+    code: "BGFAB146",
+    description: "Step Into The Night, Where Moths Gather In Quiet Devotion To The Glow. Drawn Irresistibly Toward The Light, This Midi Skirt Echoes That Dangerous Beauty, Where Curiosity Meets Temptation.",
+    details: [
+        "Tartan Midi Skirt","Fitted Waistband","Gathered Skirt","Pockets on sides","Zip Closure at the back","Made from cotton fabric","Designed in Naarm/ Melbourne by our apparel design team","Available in Plum"],
+    gallery: [
+        {src: "ASSETS/LunaGothMidiSkirt.png", alt: "Luna Goth Midi Skirt"},
+        {src: "ASSETS/LunaGothMidiSkirt2.png", alt: "Luna Goth Midi Skirt 2"},
+        {src: "ASSETS/LunaGothMidiSkirt3.png", alt: "Luna Goth Midi Skirt 3"},
+        {src: "ASSETS/LunaGothMidiSkirt4.png", alt: "Luna Goth Midi Skirt 4"},
+        {src: "ASSETS/LunaGothMidiSkirt5.png", alt: "Luna Goth Midi Skirt 5"}
+    ]
+    }
+    {
+    id: "faux-suede-cross-mj",
+    name: "Faux Suede Cross Mary Janes",
+    category: 'Shoes Womens Suede Faux Black',
+    price: 79.2, oldPrice: 99,
+    sizes: ["XS","S","M","L","XL"],
+    code: "BWSAB001",
+    description: "Faux Suede Criss Cross Mary Janes",
+    details: [
+        "A pair of fun and cute shoes","A new take on a classic mary jane","Criss cross straps","Patent details","Silver toned buckle and studs","Faux suede look","Approximate sole height of 8.5cm heel and 4cm sole"],
+    gallery: [
+        {src: "ASSETS/FauxSuedeCrossMJ.png", alt: "Faux Suede Cross Mary Janes"},
+        {src: "ASSETS/FauxSuedeCrossMJ2.png", alt: "Faux Suede Cross Mary Janes 2"},
+        {src: "ASSETS/FauxSuedeCrossMJ3.png", alt: "Faux Suede Cross Mary Janes 3"},
+        {src: "ASSETS/FauxSuedeCrossMJ4.png", alt: "Faux Suede Cross Mary Janes 4"},
+        {src: "ASSETS/FauxSuedeCrossMJ5.png", alt: "Faux Suede Cross Mary Janes 5"}
+    ]
     }
 ]
 
