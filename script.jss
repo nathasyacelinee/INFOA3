@@ -172,6 +172,60 @@ const products = [
         {src: "ASSETS/MedievalKnit5.png", alt: "Medieval Knit 5"}
     ]
     }
+    {
+    id: "grace-corset-overlay",
+    name: "Your Grace Corset Overlay",
+    category: 'Corset Womens Red Maxi',
+    price: 86.4, oldPrice: 108,
+    sizes: ["XS","S","M","L","XL"],
+    code: "BGFAB107",
+    description: "Veiled In Candlelight And Quiet Authority, This Medieval-Inspired Corset Overlay Channels The Grace Of Stone Halls And Whispered Vows. Regal Yet Restrained, It Carries The Allure Of A Woman Whose Presence Commands The Room Long After She Departs.",
+    details: [
+        "Corset Overlay","Maxi Length","Lace up front with velvet ribbon","Harness style back","Available in wine","Made from Cotton Fabric","Designed in Naarm/ Melbourne by our apparel design team"],
+    gallery: [
+        {src: "ASSETS/YourGraceCorset.png", alt: "Your Grace Corset Overlay"},
+        {src: "ASSETS/YourGraceCorset2.png", alt: "Your Grace Corset Overlay 2"},
+        {src: "ASSETS/YourGraceCorset3.png", alt: "Your Grace Corset Overlay 3"},
+        {src: "ASSETS/YourGraceCorset4.png", alt: "Your Grace Corset Overlay 4"},
+        {src: "ASSETS/YourGraceCorset5.png", alt: "Your Grace Corset Overlay 5"}
+    ]
+    }
+    {
+    id: "grace-goth-corset-top",
+    name: "Grace Goth Corset Top",
+    category: 'Corset Womens Red Top',
+    price: 62.4, oldPrice: 78,
+    sizes: ["XS","S","M","L","XL"],
+    code: "BGFAB155",
+    description: "Veiled In Candlelight And Quiet Authority, This Medieval-Inspired Corset Top Channels The Grace Of Stone Halls And Whispered Vows. Regal Yet Restrained, It Carries The Allure Of A Woman Whose Presence Commands The Room Long After She Departs.",
+    details: [
+        "Corset Top","Zip Closer at the back","Lace up front detail","Boning throughout corset","Sleeveless style","Made from Cotton Stretch Fabric","Designed in Naarm/ Melbourne by our apparel design team","Available in red or black"],
+    gallery: [
+        {src: "ASSETS/GraceGothTop.png", alt: "Grace Goth Corset Top"},
+        {src: "ASSETS/GraceGothTop2.png", alt: "Grace Goth Corset Top 2"},
+        {src: "ASSETS/GraceGothTop3.png", alt: "Grace Goth Corset Top 3"},
+        {src: "ASSETS/GraceGothTop4.png", alt: "Grace Goth Corset Top 4"},
+        {src: "ASSETS/GraceGothTop5.png", alt: "Grace Goth Corset Top 5"}
+    ]
+    }
+    {
+    id: "joust-midi-skirt",
+    name: "Joust Midi Skirt",
+    category: 'Midi Womens Navy Skirt',
+    price: 70.4, oldPrice: 88,
+    sizes: ["XS","S","M","L","XL"],
+    code: "BGFAB101",
+    description: "Bringing Storybook Charm To Modern Style. This Midi Skirt Features The Fun 'Joust' Print Inspired By Medieval Castle Life And Courtly Flair. It’s Made For Casual Days With A Hint Of Fantasy.",
+    details: [
+        "Printed Midi Skirt","Fitted Waistband","Gathered Skirt","Zip Closure on Back","Made from Viscose Fabric","Designed in Naarm/ Melbourne by our apparel design team","Available in navy"],
+    gallery: [
+        {src: "ASSETS/JoustMidiSkirt.png", alt: "Joust Midi Skirt"},
+        {src: "ASSETS/JoustMidiSkirt2.png", alt: "Joust Midi Skirt 2"},
+        {src: "ASSETS/JoustMidiSkirt3.png", alt: "Joust Midi Skirt 3"},
+        {src: "ASSETS/JoustMidiSkirt4.png", alt: "Joust Midi Skirt 4"},
+        {src: "ASSETS/JoustMidiSkirt5.png", alt: "Joust Midi Skirt 5"}
+    ]
+    }
 ]
 
 document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('sideMenu').classList.add('open'));
