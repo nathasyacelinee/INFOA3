@@ -136,6 +136,42 @@ const products = [
         {src: "ASSETS/FauxSuedeCrossMJ5.png", alt: "Faux Suede Cross Mary Janes 5"}
     ]
     }
+    {
+    id: "swarm-gradient-cardigan",
+    name: "Swarm Gradient Cardigan",
+    category: 'Cardigan Mens Swarm Brown',
+    price: 94.4, oldPrice: 118,
+    sizes: ["XS","S","M","L","XL"],
+    code: "BBFAB048",
+    description: "Fly Into Trouble With The 'Swarm Gradient Cardi'. This Piece Blends Soft Nostalgia With A Bold Edge And Is Super Comfy.",
+    details: [
+        "Gradient Knit Cardigan","Long Sleeves","Relaxed Fit","Button Closure at Front","V shape neckline","Available in Multi","Designed in Naarm/ Melbourne by our apparel design team","Small Patch Pockets on the front"],
+    gallery: [
+        {src: "ASSETS/SwarmGradientCardi.png", alt: "Swarm Gradient Cardi"},
+        {src: "ASSETS/SwarmGradientCardi2.png", alt: "Swarm Gradient Cardi 2"},
+        {src: "ASSETS/SwarmGradientCardi3.png", alt: "Swarm Gradient Cardi 3"},
+        {src: "ASSETS/SwarmGradientCardi4.png", alt: "Swarm Gradient Cardi 4"},
+        {src: "ASSETS/SwarmGradientCardi5.png", alt: "Swarm Gradient Cardi 5"}
+    ]
+    }
+    {
+    id: "medieval-fairisle-knit",
+    name: "Medieval Fairisle Knit",
+    category: 'Knit Womens Sweater Cream',
+    price: 86.4, oldPrice: 108,
+    sizes: ["XS","S","M","L","XL"],
+    code: "BGFAB104",
+    description: "Veiled In Candlelight And Quiet Authority, This Medieval-Inspired Knit Channels The Grace Of Stone Halls And Whispered Vows. Regal Yet Restrained, It Carries The Allure Of A Woman Whose Presence Commands The Room Long After She Departs.",
+    details: [
+        "Knit Jumpet","Relaxed Fit","Long Bellowed Sleeves","Wine Rib on Cuffs and Collar","Jacquard Knit Design","Made from Cotton Fabric","Designed in Naarm/ Melbourne by our apparel design team","Available in cream wine"],
+    gallery: [
+        {src: "ASSETS/MedievalKnit.png", alt: "Medieval Knit"},
+        {src: "ASSETS/MedievalKnit2.png", alt: "Medieval Knit 2"},
+        {src: "ASSETS/MedievalKnit3.png", alt: "Medieval Knit 3"},
+        {src: "ASSETS/MedievalKnit4.png", alt: "Medieval Knit 4"},
+        {src: "ASSETS/MedievalKnit5.png", alt: "Medieval Knit 5"}
+    ]
+    }
 ]
 
 document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('sideMenu').classList.add('open'));
