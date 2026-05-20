@@ -3,7 +3,7 @@ const products = [
     {
     id: "shine-mini-dress",
     name: "Shine Bright Tartan Mini Dress",
-    category: 'Dress Womens New Sale Tartan',
+    tags: ["Dress", "Womens","New","Sale","Tartan"],
     price: 86.4, oldPrice: 108,
     sizes: ["XS","S","M","L","XL"],
     code: "BGFAB289",
@@ -31,7 +31,7 @@ const products = [
     {
     id: "midnight-gosh-mesh-top",
     name: "Midnight Gosh Mesh Top",
-    category: 'Top Womens New Sale Mesh',
+    tags: ["Top","Womens","New","Sale","Mesh"],
     price: 38.4, oldPrice: 48,
     sizes: ["XS","S","M","L","XL"],
     code: "BGFAB154",
@@ -49,7 +49,7 @@ const products = [
     {
     id: "shine-bright-goth-pant",
     name: "Shine Bright Goth Pant",
-    category: 'Top Womens Pant Goth Flared',
+    tags: ["Top","Womens","Pant","Goth","Flared"],
     price: 78.4, oldPrice: 98,
     sizes: ["XS","S","M","L","XL"],
     code: "BGFAB136",
@@ -67,7 +67,7 @@ const products = [
     {
     id: "shine-goth-skort",
     name: "Shine Bright Goth Skort",
-    category: 'Skort Womens Goth Mini',
+    tags: ["Skort","Womens","Goth","Mini"],
     price: 67.2, oldPrice: 84,
     sizes: ["XS","S","M","L","XL"],
     code: "BGFAB135",
@@ -85,7 +85,7 @@ const products = [
     {
     id: "swarm-goth-cardigan",
     name: "Swarm Goth Cardigan",
-    category: 'Cardigan Womens Goth Pink Cardigan',
+    tags: ["Cardigan","Womens","Goth","Pink","Cardigan"],
     price: 78.4, oldPrice: 98,
     sizes: ["XS","S","M","L","XL"],
     code: "BGFAB152",
@@ -103,7 +103,7 @@ const products = [
     {
     id: "luna-tartan-midi-skirt",
     name: "Luna Goth Tartan Midi Skirt",
-    category: 'Skirt Womens Goth Pink Midi',
+    tags: ["Skirt","Womens","Goth","Pink","Midi"],
     price: 78.4, oldPrice: 98,
     sizes: ["XS","S","M","L","XL"],
     code: "BGFAB146",
@@ -121,7 +121,7 @@ const products = [
     {
     id: "faux-suede-cross-mj",
     name: "Faux Suede Cross Mary Janes",
-    category: 'Shoes Womens Suede Faux Black',
+    tags: ["Shoes","Womens","Suede","Faux","Black"],
     price: 79.2, oldPrice: 99,
     sizes: ["XS","S","M","L","XL"],
     code: "BWSAB001",
@@ -139,7 +139,7 @@ const products = [
     {
     id: "swarm-gradient-cardigan",
     name: "Swarm Gradient Cardigan",
-    category: 'Cardigan Mens Swarm Brown',
+    tags: ["Cardigan","Mens","Swarm","Brown"],
     price: 94.4, oldPrice: 118,
     sizes: ["XS","S","M","L","XL"],
     code: "BBFAB048",
@@ -157,7 +157,7 @@ const products = [
     {
     id: "medieval-fairisle-knit",
     name: "Medieval Fairisle Knit",
-    category: 'Knit Womens Sweater Cream',
+    tags: ["Knit","Womens","Sweater","Cream"],
     price: 86.4, oldPrice: 108,
     sizes: ["XS","S","M","L","XL"],
     code: "BGFAB104",
@@ -175,7 +175,7 @@ const products = [
     {
     id: "grace-corset-overlay",
     name: "Your Grace Corset Overlay",
-    category: 'Corset Womens Red Maxi',
+    tags: ["Corset","Womens","Red","Maxi"],
     price: 86.4, oldPrice: 108,
     sizes: ["XS","S","M","L","XL"],
     code: "BGFAB107",
@@ -193,7 +193,7 @@ const products = [
     {
     id: "grace-goth-corset-top",
     name: "Grace Goth Corset Top",
-    category: 'Corset Womens Red Top',
+    tags: ["Corset","Womens","Red","Top"],
     price: 62.4, oldPrice: 78,
     sizes: ["XS","S","M","L","XL"],
     code: "BGFAB155",
@@ -211,7 +211,7 @@ const products = [
     {
     id: "joust-midi-skirt",
     name: "Joust Midi Skirt",
-    category: 'Midi Womens Navy Skirt',
+    tags: ["Midi", "Womens","Navy","Skirt"],
     price: 70.4, oldPrice: 88,
     sizes: ["XS","S","M","L","XL"],
     code: "BGFAB101",
@@ -227,41 +227,86 @@ const products = [
     ]
     }
 ]
+/* CURRENT CATEGORY/ SEARCH ITEMS SHOWN ON THE PAGE */
+let cart = JSON.parse(localStorage.getItem("dangerfieldCart")) || [];
+let activeFilter = '';
+let selectedProduct = products[0];
+let selectedSize = selectedProduct.sizes[0];
+let discountAmount = 0;
 
-/*Side Menu*/
+const pages= document.querySelectorAll('.page');
+const cartCount= document.getElementById('cartCount');
+const sideMenu= document.getElementById("sideMenu");
+
+/* convert number to price value? */
+function money(value){
+  return `$${Number(value).toFixed(2)}`;
+}
+
+/* SIDE MENU */
 document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('sideMenu').classList.add('open'));
 document.getElementById ('closeMenu').addEventListener('click', () => document.getElementById('sideMenu').classList.remove('open'));
-
+/* FILTER BUTTON FOR MOBILE? */
 document.getElementById('toggleFilters').addEventListener('click', () => document.getElementById('filters').classList.toggle('open'));
+/* RELOAD THE PRODUCT GRID WHEN FILTER CHANGED */
+document.getElementById('sortSelect').addEventListener('change', renderShop);
+document.querySelectorAll('#filters input').forEach(input=> input.addEventListener('change', renderShop));
 
+document.getElementById('addCartBtn').addEventListener('click', () => addToCart(selectedProduct.id, document.getElementById('qtyInput').value));
+document.getElementById('buyNowBtn').addEventListener('click', () => {addToCart(selectedProduct.id, document.getElementById('qtyInput').value); showPage('cart')});
+/* BUTTONS LISTENER? MAKE THE BUTTON WORKED */
+document.body.addEventListener('click', event => {
+    const pageBtn= event.target.closest('[data-page]');
+    const filterBtn = event.target.closest('[data-filter]');
+    const viewBtn = event.target.closest('[data-view]');
+    const addBtn = event.target.closest('[data-add]');
+    const searchBtn = event.target.closest('[data-search]');
+    const removeBtn = event.target.closest('[data-remove]');
+
+    if (pageBtn) showPage(pageBtn.dataset.page);
+    if (filterBtn){activeFilter= filterBtn.dataset.filter; renderShop(); showPage('shop');}
+    if (viewBtn) openProduct(viewBtn.dataset.view);
+    if (addBtn){addToCart (addBtn.dataset.add); renderCart();}
+    if (searchBtn){activeFilter = searchBtn.dataset.search; renderShop(); showPage('shop');}
+    if (removeBtn){cart = cart.filter(item => item.id !== Number(removeBtn.dataset.remove)); saveCart(); renderCart();}
+});
+
+/* SINGLE PAGE? HIDES ALL SECTION, SHOWS THE REQUESTED PAGE */
 function showPage(pageName){
     pages.forEach(page => page.classList. remove('active'));
     document.getElementById(pageName + 'Page').classList.add('active');
     window.scrollTo({top:0, behavior:'smooth'});
     document.getElementById('sideMenu').classList.remove('open');
-    if(pageName === 'cart') renderCart();
+    if (pageName === 'cart') renderCart();
+    if (pageName === 'shop') renderShop();
 }
 
-document.body.addEventListener('click', event => {
-    const pageBtn= event.target.closest('[data-page]');
-    if (pageBtn) showPage(pageBtn.dataset.page);
-});
+function productMedia(product){
+    const image= product.gallery && product.gallery[0];
+    if(image){
+    return `<img src="${image.src}" alt="${image.alt}" onerror="this.style.display='none'">`;
+  }
+  return `<div class="product-art" role="img" aria-label="${product.name}"></div>`;
+}
 
-/* Current category/ search items shown on the page */
-let cart = JSON.parse(localStorage.getItem("dangerfieldCart")) || [];
-let activeFilter = '';
-let selectedProduct = products[0];
-let discountAmount = 0
-const pages= document.querySelectorAll('.page');
-const cartCount= document.getElementById('cartCount');
+/* MAKE NORMAL PRICING -> SALE, BUT THE OLD PRICE STILL VISIBLE */
+function priceMarkup(product){
+    if(!product.oldPrice){
+        return `<span>${money(product.price)}</span>`;
+    }
 
+    return `${money(product.price)} <span class="sale">was ${money(product.oldPrice)}</span>`;
+}
+
+/* 5 NEW ARRIVALS LIST ON THE HOME PAGE */
 function renderHome(){
     const homeProducts= document.getElementById('homeProducts');
     homeProducts.innerHTML= ''
-    products.slice(0,5).forEach(product => homeProducts.appendChild(makeProductCard(product)));
+    products.slice(0,5).forEach(product => homeProducts.appendChild(createProductCard(product)));
 }
 
-function makeProductCard(product){
+/* PRODUCT CARD */
+function createProductCard(product){
     const card= document.createElement('article');
     card.className = 'product-card';
     card.innerHTML = `
@@ -271,29 +316,138 @@ function makeProductCard(product){
     <div class="product-actions">
       <button type="button" data-view="${product.id}">View</button>
       <button type="button" data-add="${product.id}">Add</button>
-      <button type="button" aria-label="Add ${product.name} to wishlist">&#9825;</button>
+      <button type="button" aria-label="Add ${product.name} to wishlist">♡</button>
     </div>
   `;
   return card;
 }
 
-function renderShop(){
-    const grid= document.getElementById('shopProducts');
-    const checkedFilters= [...document.querySelectorAll('#filters input:checked')].map(input=> input.value);
-    const sort= document.getElementById('sortSelect').value;
-
-    let visible= products.filter(product => {
-        const matchesMainFilter = !activeFilter || product.category.includes(activeFilter)|| product.name.toLowerCase().includes(activeFilter.toLowerCase());
-        const matchesChecked= checkedFilters.length === 0 || checkedFilters.some(filter => product.category.includes(filter));
-        return matchesMainFilter && matchesChecked;
-    });
-    if(sort === 'low') visible.sort((a,b)=> a.price-b.price);
-    if(sort === 'high') visible.sort((a,b)=> b.price - a.price);
-
-    document.getElementById('shopTitle').textContent= activeFilter ? activeFilter: 'Shop All';
-    grid.innerHTML= '';
-    visible.forEach(product => grid.appendChild(makeProductCard(product)));
+function renderProductList(wrapper, list){
+    wrapper.innerHTML="";
+    list.forEach(product => wrapper.appendChild(createProductCard(product)));
 }
+
+function matchesFilter(product) {
+    const checkedFilters = [...document.querySelectorAll("#filters input:checked")].map(input=> input.value.toLowerCase());
+    const searchText = activeFilter.toLowerCase();
+    const tagText= product.tags.join(" ").toLowerCase();
+
+    const matchesMainFilter =
+    !activeFilter ||
+    tagText.includes(searchText) ||
+    product.name.toLowerCase().includes(searchText);
+
+    const matchesChecked=
+    checkedFilters.length === 0 ||
+    checkedFilters.some(filter=> tagText.includes(filter));
+
+    return matchesMainFilter && matchesChecked;
+}
+
+function renderShop() {
+  const visible = sortedProducts(products.filter(matchesFilter));
+  document.getElementById("shopTitle").textContent = activeFilter === "All" ? "Shop all" : activeFilter;
+  document.getElementById("resultCount").textContent = `${visible.length} product${visible.length === 1 ? "" : "s"} shown`;
+  renderProductList(document.getElementById("shopProducts"), visible);
+}
+
+function sortedProducts(list){
+    const sort = document.getElementById("sortSelect").value;
+    const copy = [...list];
+
+    if (sort === "low") copy.sort((a,b) => a.price - b.price);
+    if (sort === "high") copy.sort((a,b) => b.price - a.price);
+
+    return copy;
+}
+
+/* MAKE A CLICKABLE IMAGE ON THE PRODUCT DETAIL */
+function renderGallery(product){
+    const gallery= product.gallery|| products [0].gallery;
+    const mainImage= document.getElementById("mainProductImage");
+    const thumbList= document.getElementById("thumbList");
+    
+    mainImage.src = gallery[0].src;
+    mainImage.alt = gallery[0].alt;
+    thumbList.innerHTML = "";
+
+    gallery.forEach((image, index) => {
+        const button = document.createElement("button");
+        button.type= "button";
+        button.dataset.thumb = index;
+        button.className= index === 0 ? "active": "";
+        button.innerHTML= `<img src="${image.src}" alt="${image.alt}" />`;
+    thumbList.appendChild(button);
+  });
+}
+
+/* CONTAINS ALL OF THE INFORMATION OF THE PRODUCT */
+function findProduct(id){
+    return products.find(product => product.id === id) || products [0];}
+function openProduct(id){
+    selectedProduct= findProduct(id);
+    renderGallery(selectedProduct);
+    document.getElementById("productCrumb").textContent = selectedProduct.name;
+    document.getElementById("detailDiscount").textContent= selectedProduct.discount || "New";
+    document.getElementById("detailName").textContent = selectedProduct.name;
+    document.getElementById("detailPrice").innerHTML = priceMarkup(selectedProduct);
+    document.getElementById("detailDescription").textContent= selectedProduct.description;
+    document.getElementById("detailList").innerHTML= selectedProduct.details.map(detail => `<li>${detail}</li>`).join("");
+    document.getElementById("productCode").textContent= `Product code: ${selectedProduct.code}`;
+    document.getElementById("qtyInput").value=1;
+
+    showPage("product");
+}
+
+/* ADD ITEMS W/ SIZE AND QUANTITY TO THE CART */
+function addToCart(id, quantity = 1, size = null) {
+  const product = findProduct(id);
+  const itemSize = size || (product.id === selectedProduct.id ? selectedSize : product.sizes[0]);
+  const amount = Math.max(1, Number(quantity) || 1);
+  const existing = cart.find(item => item.id === product.id && item.size === itemSize);
+
+  if (existing) {
+    existing.qty += amount;
+  } else {
+    cart.push({ id: product.id, size: itemSize, qty: amount });
+  }
+
+  saveCart();
+}
+
+/* TO UPDATE THE CART ICON COUNT IN THE HEADER */
+function saveCart(){
+    localStorage.setItem('dangerfieldCart', JSON.stringify(cart));
+    cartCount.textContent= cart.reduce((sum,item) => sum + item.qty, 0);
+}
+
+/* CARD LIST, SUBTOTAL, AND TOTAL WHEN USER ADD NEW ITEMS */
+function renderCart(){
+    const wrapper= document.getElementById('cartItems');
+    wrapper.innerHTML= cart.length ? '' : '<p>Your cart is empty. Continue shopping to add products. </p>';
+
+    cart.forEach(item => {
+        const row= document.createElement('article');
+        row.className= 'cart-item';
+        row.innerHTML= `
+        <div class="cart-thumb"></div>
+        <div><h3>${item.name}</h3><p>$${item.price} · Size ${item.size}</p><label>Qty <input type="number" min="1" value="${item.qty}" data-qty="${item.id}"></label></div>
+        <button data-remove="${item.id}">Remove</button>`;
+        wrapper.appendChild(row);
+    });
+
+/* SUBTOTAL = SUM OF THE PRICE MULTIPLIED BY THE QUANTITY FOR EVERY CHART ITEM */
+    const subtotal = cart.reduce((sum,item) => sum + item.price * item.qty, 0);
+    document.getElementById('subtotal').textContent= `$${subtotal}`;
+  document.getElementById('total').textContent = `$${cart.length ? subtotal + 10 : 0}`;
+}
+
+/* SUGGESTED PRODUCTS UNDER THE CART */
+function renderRecommended(){
+    const row= document.getElementById('recommendedProducts');
+    row.innerHTML= '';
+    product.slice(1,5).forEach(product => row.appendChild(makeProductCard(product)));}
+
 renderHome();
 renderShop();
 renderRecommended();

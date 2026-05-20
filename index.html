@@ -20,7 +20,7 @@
         <button data-filter="dress">Dresses</button>
         <button data-filter="mens">Mens</button>
     </nav>
-        <button class="icon-btn" data-page="Cart" >🛒<span id="cartCount">0</span></button>
+        <button class="icon-btn" data-page="cart" >🛒<span id="cartCount">0</span></button>
         <button class="icon-btn" >♡</button>
 </header>
 
@@ -29,9 +29,9 @@
     <button class="close-btn" id="closeMenu">×</button>
     <button data-page="home">Home</button>
     <button data-page="shop">Shop All</button>
-    <button data-filter="Sale">Sale</button>
-    <button data-filter="Dress">Dresses</button>
-    <button data-filter="Mens">Mens</button>
+    <button data-filter="sale">Sale</button>
+    <button data-filter="dress">Dresses</button>
+    <button data-filter="mens">Mens</button>
  </aside>
  
 <main>
@@ -44,8 +44,8 @@
         <p>Express your style with bold, alternative fashion.</p>
         </div>
         <div>
-            <img src="ASSETS/01.jpg" alt="img1" width="160" height="251">
-            <img src="ASSETS/02.png" alt="img2" width="160" height="251"> 
+            <img src="ASSETS/01.jpg" alt="img1" >
+            <img src="ASSETS/02.png" alt="img2" > 
         </div>
         <div class="hero-actions">
             <button class="primary" data-page="shop">View All</button>
@@ -68,7 +68,6 @@
 
 <!--Collections: Womens, Mens, Kids-->
 <section class="collection-grid">
-    <h1>OUR COLLECTIONS</h1>
     <article class="collection-card" data-filter="womens"><span>Womens</span></article>
     <article class="collection-card mens" data-filter="mens"><span>Mens</span></article>
     <article class="collection-card kids" data-filter="kids"><span>Kids</span></article>
@@ -121,14 +120,15 @@
     <div class="shop-layout">
         <aside class="filters" id="filters">
         <h2>Filters by</h2>
-        <label><input type="checkbox" value="Dress"/>Dresses</label>
-        <label><input type="checkbox" value="Tops"/>Tops</label>
-        <label><input type="checkbox" value="Bottoms"/>Bottoms</label>
-        <label><input type="checkbox" value="Mens"/>Mens</label>
-        <label><input type="checkbox" value="Sale"/>Sale</label>
+        <label><input type="checkbox" value="dress"/>Dresses</label>
+        <label><input type="checkbox" value="tops"/>Tops</label>
+        <label><input type="checkbox" value="bottoms"/>Bottoms</label>
+        <label><input type="checkbox" value="mens"/>Mens</label>
+        <label><input type="checkbox" value="sale"/>Sale</label>
         <button class="secondary" id="clearFilters">Clear</button>
         </aside>
         <div class="product-grid" id="shopProducts"></div>
+        <p id="resultCount"></p>
     </div>
     <div class="pagination"><button>1</button><button>2</button></div> 
 </section>
@@ -139,11 +139,12 @@
     <div class="product-detail">
         <div class="gallery">
         <div class="main-image" id="mainProductImage"></div>
-        <div class="thumbs"><button></button><button></button><button></button></div>
+        <div class="thumbs" id="thumbList"></div>
     </div>
     <article class="detail-card">
         <h1 id="detailName"></h1>
         <p class="price" id="detailPrice"></p>
+        <p id="detailDiscount"></p>
         <label>Size
             <select id="sizeSelect"><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
         </label>
@@ -152,8 +153,10 @@
         </label>
         <button class="primary" id="addCartBtn">Add to Cart</button>
         <button class="secondary"id="buyNowBtn">Buy Now</button>
-        <h3>Product Details</h3>
-        <p>A timeless tartan with a rebellious edge, this iconic mini dress is not asking, but demanding attention</p>
+        <h2>Product Details</h2>
+        <p id="detailDescription"></p>
+        <ul id="detailList"></ul>
+        <p id="productCode"></p>
     </article>
     </div>
 </section>
@@ -173,7 +176,7 @@
             <button class="primary" data-page="payment">Pay Now</button>
         </aside>
     </div>
-    <section class="product-section"><h1>Recommended for you</h1><div class="product-row" id="recommendedProdoucts"></div></section>
+    <section class="product-section"><h1>Recommended for you</h1><div class="product-row" id="recommendedProducts"></div></section>
 </section>
 
 <!--Payment Page-->
@@ -193,8 +196,11 @@
 <!--Confirmation Page-->
 <section class="page confirmation-page" id="confirmationPage">
     <button class="back-link" data-page="home">‹ Back</button>
-    <h1>Payment Confirmed!</h1>
-    <button data-page="home">Find out more</button>
+    <div class="confirmation-box">
+        <div class="sparkles">✦ ✧ ✦</div>
+        <h1>Payment Confirmed!</h1>
+        <button class="primary" data-page="home">Find out more</button>
+        </div>
 </section>
 </main>
 
