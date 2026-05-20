@@ -144,7 +144,8 @@ main{min-height: 70vh;}
     position: relative;
 }
 
-
+.page{display: none}
+.page.active{display: block}
 footer{
     display:grid;
     grid-template-columns: repeat(4, 2fr);
