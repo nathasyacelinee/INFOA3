@@ -369,8 +369,7 @@ function renderGallery(product){
     const mainImage= document.getElementById("mainProductImage");
     const thumbList= document.getElementById("thumbList");
     
-    mainImage.src = gallery[0].src;
-    mainImage.alt = gallery[0].alt;
+    mainImage.innerHTML='<img src="${gallery[0].src}" alt="${gallery[0].alt}">';
     thumbList.innerHTML = "";
 
     gallery.forEach((image, index) => {
