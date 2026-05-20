@@ -251,7 +251,7 @@ document.getElementById('toggleFilters').addEventListener('click', () => documen
 /* RELOAD THE PRODUCT GRID WHEN FILTER CHANGED */
 document.getElementById('sortSelect').addEventListener('change', renderShop);
 document.querySelectorAll('#filters input').forEach(input=> input.addEventListener('change', renderShop));
-
+/* PRODUCT PAGE BUTTONS TO ADD ITEMS TO THE CART */
 document.getElementById('addCartBtn').addEventListener('click', () => addToCart(selectedProduct.id, document.getElementById('qtyInput').value));
 document.getElementById('buyNowBtn').addEventListener('click', () => {addToCart(selectedProduct.id, document.getElementById('qtyInput').value); showPage('cart')});
 /* BUTTONS LISTENER? MAKE THE BUTTON WORKED */
@@ -268,7 +268,9 @@ document.body.addEventListener('click', event => {
     if (viewBtn) openProduct(viewBtn.dataset.view);
     if (addBtn){addToCart (addBtn.dataset.add); renderCart();}
     if (searchBtn){activeFilter = searchBtn.dataset.search; renderShop(); showPage('shop');}
-    if (removeBtn){cart = cart.filter(item => item.id !== Number(removeBtn.dataset.remove)); saveCart(); renderCart();}
+    if (removeBtn){
+        cart = cart.filter(item => !(item.id === removeBtn.dataset.remove && item.size === removeBtn.dataset.size));
+        saveCart(); renderCart();}
 });
 
 /* SINGLE PAGE? HIDES ALL SECTION, SHOWS THE REQUESTED PAGE */
@@ -424,22 +426,31 @@ function saveCart(){
 /* CARD LIST, SUBTOTAL, AND TOTAL WHEN USER ADD NEW ITEMS */
 function renderCart(){
     const wrapper= document.getElementById('cartItems');
+    cart= cart.filter(item=> products.some(product=> product.id === item.id));
     wrapper.innerHTML= cart.length ? '' : '<p>Your cart is empty. Continue shopping to add products. </p>';
 
     cart.forEach(item => {
+        const product= products.find(product=> product.id === item.id);
+
         const row= document.createElement('article');
         row.className= 'cart-item';
         row.innerHTML= `
         <div class="cart-thumb"></div>
-        <div><h3>${item.name}</h3><p>$${item.price} · Size ${item.size}</p><label>Qty <input type="number" min="1" value="${item.qty}" data-qty="${item.id}"></label></div>
-        <button data-remove="${item.id}">Remove</button>`;
+        <div>
+        <h3>${product.name}</h3>
+        <p>${money(product.price)} · Size ${item.size}</p>
+        <label>Qty <input type="number" min="1" value="${item.qty}" data-qty="${item.id}"></label>
+        </div>
+        <button data-remove="${item.id}" data-size="${item.size}">Remove</button>`;
         wrapper.appendChild(row);
     });
 
 /* SUBTOTAL = SUM OF THE PRICE MULTIPLIED BY THE QUANTITY FOR EVERY CHART ITEM */
-    const subtotal = cart.reduce((sum,item) => sum + item.price * item.qty, 0);
-    document.getElementById('subtotal').textContent= `$${subtotal}`;
-  document.getElementById('total').textContent = `$${cart.length ? subtotal + 10 : 0}`;
+    const subtotal = cart.reduce((sum,item) => {
+        const product= products.find(product=> product.id === item.id);
+        return sum + product.price * item.qty;}, 0);
+        document.getElementById('subtotal').textContent= money(subtotal);
+        document.getElementById('total').textContent = money(cart.length ? subtotal + 10 : 0);
 }
 
 /* SUGGESTED PRODUCTS UNDER THE CART */
@@ -447,6 +458,7 @@ function renderRecommended(){
     const row= document.getElementById('recommendedProducts');
     row.innerHTML= '';
     product.slice(1,5).forEach(product => row.appendChild(makeProductCard(product)));}
+
 
 renderHome();
 renderShop();
