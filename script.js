@@ -227,9 +227,14 @@ const products = [
     ]
     }
 ]
-/* CURRENT CATEGORY/ SEARCH ITEMS SHOWN ON THE PAGE */
+
+/* ITEMS STAY SAVED EVENTHO WE REFRESHED THE PAGE */
 let cart = JSON.parse(localStorage.getItem("dangerfieldCart")) || [];
+
+/* CURRENT CATEGORY/ SEARCH ITEMS SHOWN ON THE PAGE */
 let activeFilter = '';
+
+/* TELL THE USER WHICH ITEM THEY R VIEWING */
 let selectedProduct = products[0];
 let selectedSize = selectedProduct.sizes[0];
 let discountAmount = 0;
@@ -254,6 +259,7 @@ document.querySelectorAll('#filters input').forEach(input=> input.addEventListen
 /* PRODUCT PAGE BUTTONS TO ADD ITEMS TO THE CART */
 document.getElementById('addCartBtn').addEventListener('click', () => addToCart(selectedProduct.id, document.getElementById('qtyInput').value));
 document.getElementById('buyNowBtn').addEventListener('click', () => {addToCart(selectedProduct.id, document.getElementById('qtyInput').value); showPage('cart')});
+
 /* BUTTONS LISTENER? MAKE THE BUTTON WORKED */
 document.body.addEventListener('click', event => {
     const pageBtn= event.target.closest('[data-page]');
@@ -346,6 +352,7 @@ function matchesFilter(product) {
     return matchesMainFilter && matchesChecked;
 }
 
+/* SHOWING THE CHOSEN FILTER/ SORT THAT USER CHOSE */
 function renderShop() {
   const visible = sortedProducts(products.filter(matchesFilter));
   document.getElementById("shopTitle").textContent = activeFilter === "All" ? "Shop all" : activeFilter;
@@ -353,6 +360,7 @@ function renderShop() {
   renderProductList(document.getElementById("shopProducts"), visible);
 }
 
+/* SORT PRODUCTS BY PRICE */
 function sortedProducts(list){
     const sort = document.getElementById("sortSelect").value;
     const copy = [...list];
