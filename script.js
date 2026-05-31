@@ -243,6 +243,39 @@ const pages= document.querySelectorAll('.page');
 const cartCount= document.getElementById('cartCount');
 const sideMenu= document.getElementById("sideMenu");
 
+/* SINGLE PAGE? HIDES ALL SECTION, SHOWS THE REQUESTED PAGE */
+function showPage(pageName){
+    pages.forEach(page => page.classList. remove('active'));
+    document.getElementById(pageName + 'Page').classList.add('active');
+    window.scrollTo({top:0, behavior:'smooth'});
+    document.getElementById('sideMenu').classList.remove('open');
+    if (pageName === 'cart') renderCart();
+    if (pageName === 'shop') renderShop();
+}
+
+/* PRODUCT CARD */
+function createProductCard(product){
+    const card= document.createElement('article');
+    card.className = 'product-card';
+    card.innerHTML = `
+    <div class="product-media">${productMedia(product)}</div>
+    <h3>${product.name}</h3>
+    <p class="price">${priceMarkup(product)}</p>
+    <div class="product-actions">
+      <button type="button" data-view="${product.id}">View</button>
+      <button type="button" data-add="${product.id}">Add</button>
+      <button type="button" aria-label="Add ${product.name} to wishlist">♡</button>
+    </div>`;
+  return card;
+}
+
+/* 5 NEW ARRIVALS LIST ON THE HOME PAGE */
+function renderHome(){
+    const homeProducts= document.getElementById('homeProducts');
+    homeProducts.innerHTML= ''
+    products.slice(0,5).forEach(product => homeProducts.appendChild(createProductCard(product)));
+}
+
 /* convert number to price value? */
 function money(value){
   return `$${Number(value).toFixed(2)}`;
@@ -279,16 +312,6 @@ document.body.addEventListener('click', event => {
         saveCart(); renderCart();}
 });
 
-/* SINGLE PAGE? HIDES ALL SECTION, SHOWS THE REQUESTED PAGE */
-function showPage(pageName){
-    pages.forEach(page => page.classList. remove('active'));
-    document.getElementById(pageName + 'Page').classList.add('active');
-    window.scrollTo({top:0, behavior:'smooth'});
-    document.getElementById('sideMenu').classList.remove('open');
-    if (pageName === 'cart') renderCart();
-    if (pageName === 'shop') renderShop();
-}
-
 function productMedia(product){
     const image= product.gallery && product.gallery[0];
     if(image){
@@ -304,30 +327,6 @@ function priceMarkup(product){
     }
 
     return `${money(product.price)} <span class="sale">was ${money(product.oldPrice)}</span>`;
-}
-
-/* 5 NEW ARRIVALS LIST ON THE HOME PAGE */
-function renderHome(){
-    const homeProducts= document.getElementById('homeProducts');
-    homeProducts.innerHTML= ''
-    products.slice(0,5).forEach(product => homeProducts.appendChild(createProductCard(product)));
-}
-
-/* PRODUCT CARD */
-function createProductCard(product){
-    const card= document.createElement('article');
-    card.className = 'product-card';
-    card.innerHTML = `
-    <div class="product-media">${productMedia(product)}</div>
-    <h3>${product.name}</h3>
-    <p class="price">${priceMarkup(product)}</p>
-    <div class="product-actions">
-      <button type="button" data-view="${product.id}">View</button>
-      <button type="button" data-add="${product.id}">Add</button>
-      <button type="button" aria-label="Add ${product.name} to wishlist">♡</button>
-    </div>
-  `;
-  return card;
 }
 
 function renderProductList(wrapper, list){

@@ -97,6 +97,7 @@ button:hover{
 .side-menu.open{left: 0;}
 .close-btn{align-self: flex-end;}
 
+/* HOME HERO SECTION: LARGE CAMPAIGN */
 .hero{
     min-height: 520px;
     background: linear-gradient(rgba(20,100,115,.84),rgba(20,100,115,.84)),
@@ -156,7 +157,7 @@ main{min-height: 70vh;}
     max-width: 960px;
     text-align: center;}
 
-/* COLLECTION CARDS ON THE MAIN PAGE */
+/* COLLECTION CARDS (WOMENS, MENS, KIDS) ON THE MAIN PAGE */
 .collection-grid{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -172,6 +173,7 @@ main{min-height: 70vh;}
     padding: 20px;
     position: relative;}
 
+/* GRID LAYOUTS KEEP EVENLY SPACED */
 .category-grid,.chips{
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -190,6 +192,7 @@ main{min-height: 70vh;}
     background: white; border: 1px solid var(--black);
     padding: 9px 28px; text-transform: uppercase; font-weight: 900;}
 
+/* PRODUCT LISTING SECTIONS USE FLEX/ GRID FOR SCANNABLE PRODUCT COMPARISON */
 .section-title{
     display: flex;
     justify-content: space-between;
@@ -333,6 +336,7 @@ main{min-height: 70vh;}
 .page{display: none}
 .page.active{display: block}
 
+/* CART LAYOUT SEPARATES SELECTED PRODUCTS FROM ORDER SUMMARY, ETC */
 .cart-layout{
     display: grid;
     grid-template-columns: 1fr 330px;
@@ -361,6 +365,7 @@ main{min-height: 70vh;}
 .sparkles{font-size: 80px;}
 .confirmation-page h1{color: white;}
 
+/* FOOTER GROUPS */
 footer{
     display:grid;
     grid-template-columns: repeat(4, 1fr);
@@ -373,9 +378,22 @@ footer input{
     width: 100%;
     margin-bottom: 8px;}
 
+/* DESKTOP WIDTH RULE */
 @media (min-width:1200px){
     body{max-width: 1440px; margin: 0 auto;
     border-left: 1px solid #bcd;
 border-right: 1px solid #bcd}
 .page{padding-left: 70px; padding-right: 70px;}
+}
+
+/* MOBILE RESPONSIVE RULES -> 390 x 844 TESTING SIZE */
+@media (max-width: 900px){
+    .desktop-nav{display: none;}
+    .site-header{padding: 0 10px;}
+    .page{padding: 18px 12px;}
+    .hero{
+    grid-template-columns: 1fr;
+    min-height: 640px;
+    padding: 32px 18px;
+}
 }
