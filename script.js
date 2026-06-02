@@ -279,6 +279,22 @@ document.body.addEventListener('click', event => {
         saveCart(); renderCart();}
 });
 
+document.body.addEventListener('change', event=> {
+    const qtyInput= event.target.closest('[data-qty]');
+
+    if (qtyInput){
+        const item= cart.find(item=>
+            item.id === qtyInput.dataset.qty &&
+            item.size === qtyInput.dataset.size);
+
+            if (item){
+                item.qty= Math.max(1, Number(qtyInput.value) || 1);
+                saveCart();
+                renderCart();
+            }
+    }
+});
+
 /* SINGLE PAGE? HIDES ALL SECTION, SHOWS THE REQUESTED PAGE */
 function showPage(pageName){
     pages.forEach(page => page.classList. remove('active'));
@@ -447,7 +463,7 @@ function renderCart(){
 <div>
     <h3>${product.name}</h3>
     <p>${money(product.price)} · Size ${item.size}</p>
-    <label>Qty <input type="number" min="1" value="${item.qty}" data-qty="${item.id}"></label>
+    <label>Qty <input type="number" min="1" value="${item.qty}" data-qty="${item.id}" data-size="${item.size}"></label>
 </div>
 <button data-remove="${item.id}" data-size="${item.size}">Remove</button>`;
         wrapper.appendChild(row);
