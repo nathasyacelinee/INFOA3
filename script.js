@@ -243,39 +243,6 @@ const pages= document.querySelectorAll('.page');
 const cartCount= document.getElementById('cartCount');
 const sideMenu= document.getElementById("sideMenu");
 
-/* SINGLE PAGE? HIDES ALL SECTION, SHOWS THE REQUESTED PAGE */
-function showPage(pageName){
-    pages.forEach(page => page.classList. remove('active'));
-    document.getElementById(pageName + 'Page').classList.add('active');
-    window.scrollTo({top:0, behavior:'smooth'});
-    document.getElementById('sideMenu').classList.remove('open');
-    if (pageName === 'cart') renderCart();
-    if (pageName === 'shop') renderShop();
-}
-
-/* PRODUCT CARD */
-function createProductCard(product){
-    const card= document.createElement('article');
-    card.className = 'product-card';
-    card.innerHTML = `
-    <div class="product-media">${productMedia(product)}</div>
-    <h3>${product.name}</h3>
-    <p class="price">${priceMarkup(product)}</p>
-    <div class="product-actions">
-      <button type="button" data-view="${product.id}">View</button>
-      <button type="button" data-add="${product.id}">Add</button>
-      <button type="button" aria-label="Add ${product.name} to wishlist">♡</button>
-    </div>`;
-  return card;
-}
-
-/* 5 NEW ARRIVALS LIST ON THE HOME PAGE */
-function renderHome(){
-    const homeProducts= document.getElementById('homeProducts');
-    homeProducts.innerHTML= ''
-    products.slice(0,5).forEach(product => homeProducts.appendChild(createProductCard(product)));
-}
-
 /* convert number to price value? */
 function money(value){
   return `$${Number(value).toFixed(2)}`;
@@ -311,6 +278,58 @@ document.body.addEventListener('click', event => {
         cart = cart.filter(item => !(item.id === removeBtn.dataset.remove && item.size === removeBtn.dataset.size));
         saveCart(); renderCart();}
 });
+
+/* SINGLE PAGE? HIDES ALL SECTION, SHOWS THE REQUESTED PAGE */
+function showPage(pageName){
+    pages.forEach(page => page.classList. remove('active'));
+    document.getElementById(pageName + 'Page').classList.add('active');
+    window.scrollTo({top:0, behavior:'smooth'});
+    document.getElementById('sideMenu').classList.remove('open');
+    if (pageName === 'cart') renderCart();
+    if (pageName === 'shop') renderShop();
+}
+
+/* PRODUCT CARD */
+function createProductCard(product){
+    const card= document.createElement('article');
+    card.className = 'product-card';
+    card.innerHTML = `
+    <div class="product-media">${productMedia(product)}</div>
+    <h3>${product.name}</h3>
+    <p class="price">${priceMarkup(product)}</p>
+    <div class="product-actions">
+      <button type="button" data-view="${product.id}">View</button>
+      <button type="button" data-add="${product.id}">Add</button>
+      <button type="button" aria-label="Add ${product.name} to wishlist">♡</button>
+    </div>`;
+  return card;
+}
+
+/* 5 NEW ARRIVALS LIST ON THE HOME PAGE */
+function renderHome(){
+    const homeProducts= document.getElementById('homeProducts');
+    homeProducts.innerHTML= ''
+    products.slice(0,5).forEach(product => homeProducts.appendChild(createProductCard(product)));
+}
+
+/* SHOWING THE CHOSEN FILTER/ SORT THAT USER CHOSE */
+function renderShop() {
+  const visible = sortedProducts(products.filter(matchesFilter));
+  document.getElementById("shopTitle").textContent = activeFilter === "All" ? "Shop all" : activeFilter;
+  document.getElementById("resultCount").textContent = `${visible.length} product${visible.length === 1 ? "" : "s"} shown`;
+  renderProductList(document.getElementById("shopProducts"), visible);
+}
+
+/* SORT PRODUCTS BY PRICE */
+function sortedProducts(list){
+    const sort = document.getElementById("sortSelect").value;
+    const copy = [...list];
+
+    if (sort === "low") copy.sort((a,b) => a.price - b.price);
+    if (sort === "high") copy.sort((a,b) => b.price - a.price);
+
+    return copy;
+}
 
 function productMedia(product){
     const image= product.gallery && product.gallery[0];
@@ -349,25 +368,6 @@ function matchesFilter(product) {
     checkedFilters.some(filter=> tagText.includes(filter));
 
     return matchesMainFilter && matchesChecked;
-}
-
-/* SHOWING THE CHOSEN FILTER/ SORT THAT USER CHOSE */
-function renderShop() {
-  const visible = sortedProducts(products.filter(matchesFilter));
-  document.getElementById("shopTitle").textContent = activeFilter === "All" ? "Shop all" : activeFilter;
-  document.getElementById("resultCount").textContent = `${visible.length} product${visible.length === 1 ? "" : "s"} shown`;
-  renderProductList(document.getElementById("shopProducts"), visible);
-}
-
-/* SORT PRODUCTS BY PRICE */
-function sortedProducts(list){
-    const sort = document.getElementById("sortSelect").value;
-    const copy = [...list];
-
-    if (sort === "low") copy.sort((a,b) => a.price - b.price);
-    if (sort === "high") copy.sort((a,b) => b.price - a.price);
-
-    return copy;
 }
 
 /* MAKE A CLICKABLE IMAGE ON THE PRODUCT DETAIL */
@@ -441,13 +441,15 @@ function renderCart(){
         const row= document.createElement('article');
         row.className= 'cart-item';
         row.innerHTML= `
-        <div class="cart-thumb"></div>
-        <div>
-        <h3>${product.name}</h3>
-        <p>${money(product.price)} · Size ${item.size}</p>
-        <label>Qty <input type="number" min="1" value="${item.qty}" data-qty="${item.id}"></label>
-        </div>
-        <button data-remove="${item.id}" data-size="${item.size}">Remove</button>`;
+<div class="cart-thumb">
+    <img src="${product.gallery[0].src}" alt="${product.gallery[0].alt}">
+</div>
+<div>
+    <h3>${product.name}</h3>
+    <p>${money(product.price)} · Size ${item.size}</p>
+    <label>Qty <input type="number" min="1" value="${item.qty}" data-qty="${item.id}"></label>
+</div>
+<button data-remove="${item.id}" data-size="${item.size}">Remove</button>`;
         wrapper.appendChild(row);
     });
 

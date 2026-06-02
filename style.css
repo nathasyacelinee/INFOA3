@@ -169,6 +169,11 @@ main{min-height: 70vh;}
 .category-panel{
     max-width: 960px;
     text-align: center;}
+.sale-btn{
+    background: var(--red);
+    color: white;
+    border-color: var(--black);
+}
 
 /* COLLECTION CARDS (WOMENS, MENS, KIDS) ON THE MAIN PAGE */
 .collection-grid{
@@ -375,7 +380,11 @@ main{min-height: 70vh;}
 .cart-thumb{
     height: 100px;
     background: linear-gradient(#ffffff, #bedde5);
-    border: 1px solid var(--black);}
+    border: 1px solid var(--black);
+    overflow: hidden;}
+.cart-thumb img{
+    width: 100%; height: 100%; object-fit: contain; display: block;
+}
 .cart-item input{width: 62px}
 .payment-form{max-width: 680px; margin: 70px auto; text-align: left}
 .payment-form h1 {text-align: center}
@@ -396,8 +405,8 @@ main{min-height: 70vh;}
 footer{
     display:grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px; background: var(--light);
-    border-top: 2px solid var(--black); padding: 35px (18px,4vw,70pxSS);}
+    gap: 40px; background: var(--light);
+    border-top: 2px solid var(--black); padding: 35px clamp(40px,6vw,790px);}
 footer a{display: block; margin: 7px 0}
 footer input{
     padding: 10px;
@@ -407,8 +416,9 @@ footer input{
 
 /* DESKTOP WIDTH RULE */
 @media (min-width:1200px){
-    body{margin: 0 auto;
-.page{padding-left: 70px; padding-right: 70px;}
+    body{margin: 0 auto; 
+}
+   .page{padding-left: 70px; padding-right: 70px;}
 }
 
 /* MOBILE RESPONSIVE RULES -> 390 x 844 TESTING SIZE */
