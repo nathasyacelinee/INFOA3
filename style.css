@@ -107,7 +107,7 @@ button:hover{
     border: 2px solid var(--black);
     box-shadow: var(--shadow);
     display: grid;
-    grid-template-columns: 1fr 420px;
+    grid-template-columns: 1fr 560px;
     gap: 30px;
     align-items: center;
     padding: 60px;
@@ -137,23 +137,24 @@ pointer-events: none;}
     background: white;
     text-transform: uppercase;
     font-weight: 900; padding: 12px 22px;}
-.hero-card-two{
+.hero-images{
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    justify-content: center;
     position: relative;
     z-index: 1;
-    margin: auto;
-    width: 350px; height: 420px;
-    border: 2px solid white;
+}
+.hero-card{
+    width: 250px; height: 390px; border: 2px solid white;
     box-shadow: 18px 18px 0 rgba(0,0,0,.35);
     overflow: hidden;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     background: transparent;
-    gap: 8px;
-    padding: 8px;
 }
-.hero-card-two img{
+.hero-card img{
     width: 100%; height: 100%; object-fit: cover; max-width: none; object-position: center; display: block;
 }
+
 main{min-height: 70vh;}
 .page{display: none; padding: 32px clamp(20px,4vw,70px);}
 .page.active{display: block}
