@@ -178,13 +178,22 @@ main{min-height: 70vh;}
     margin: 30px 0;}
 .collection-card{
     height: 320px;
-    background: linear-gradient(100deg, #ffffff,#dedede);
     border: solid var(--black) 2px;
     box-shadow: var(--shadow);
     display: grid;
     place-items: end center;
     padding: 20px;
-    position: relative;}
+    position: relative;
+    overflow: hidden;
+    background: white;}
+.collection-card img{
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
 
 /* GRID LAYOUTS KEEP EVENLY SPACED */
 .category-grid,.chips{
@@ -197,13 +206,13 @@ main{min-height: 70vh;}
     text-transform: uppercase;
     font-weight: 700;}
 
-.collection-card:before,.product-art::before,.main-image:before{
+.product-art::before,.main-image:before{
     content: "";
     width: 40%; height: 70%;
     border-radius: 50% 50% 10% 10%; display: block; margin: auto;}
 .collection-card span{
-    background: white; border: 1px solid var(--black);
-    padding: 9px 28px; text-transform: uppercase; font-weight: 900;}
+    position: relative; background: white; border: 1px solid var(--black);
+    padding: 9px 28px; text-transform: uppercase; font-weight: 900; z-index: 1;}
 
 /* PRODUCT LISTING SECTIONS USE FLEX/ GRID FOR SCANNABLE PRODUCT COMPARISON */
 .section-title{
