@@ -257,8 +257,21 @@ document.getElementById('toggleFilters').addEventListener('click', () => documen
 document.getElementById('sortSelect').addEventListener('change', renderShop);
 document.querySelectorAll('#filters input').forEach(input=> input.addEventListener('change', renderShop));
 /* PRODUCT PAGE BUTTONS TO ADD ITEMS TO THE CART */
-document.getElementById('addCartBtn').addEventListener('click', () => addToCart(selectedProduct.id, document.getElementById('qtyInput').value));
-document.getElementById('buyNowBtn').addEventListener('click', () => {addToCart(selectedProduct.id, document.getElementById('qtyInput').value); showPage('cart')});
+document.getElementById('addCartBtn').addEventListener('click', () => {
+    addToCart(
+        selectedProduct.id,
+        document.getElementById('qtyInput').value,
+        document.getElementById('sizeSelect').value
+    );
+});
+document.getElementById('buyNowBtn').addEventListener('click', () => {
+    addToCart(
+        selectedProduct.id,
+        document.getElementById('qtyInput').value,
+        document.getElementById('sizeSelect').value
+    );
+    showPage('cart');
+});
 
 /* BUTTONS LISTENER? MAKE THE BUTTON WORKED */
 document.body.addEventListener('click', event => {
@@ -331,7 +344,7 @@ function renderHome(){
 /* SHOWING THE CHOSEN FILTER/ SORT THAT USER CHOSE */
 function renderShop() {
   const visible = sortedProducts(products.filter(matchesFilter));
-  document.getElementById("shopTitle").textContent = activeFilter === "All" ? "Shop all" : activeFilter;
+  document.getElementById("shopTitle").textContent = activeFilter === "All" ? "Shop all" : activeFilter.toUpperCase();
   document.getElementById("resultCount").textContent = `${visible.length} product${visible.length === 1 ? "" : "s"} shown`;
   renderProductList(document.getElementById("shopProducts"), visible);
 }
@@ -392,15 +405,24 @@ function renderGallery(product){
     const mainImage= document.getElementById("mainProductImage");
     const thumbList= document.getElementById("thumbList");
     
-    mainImage.innerHTML='<img src="${gallery[0].src}" alt="${gallery[0].alt}">';
+   mainImage.innerHTML = `<img src="${gallery[0].src}" alt="${gallery[0].alt}">`;
     thumbList.innerHTML = "";
 
     gallery.forEach((image, index) => {
         const button = document.createElement("button");
         button.type= "button";
-        button.dataset.thumb = index;
         button.className= index === 0 ? "active": "";
         button.innerHTML= `<img src="${image.src}" alt="${image.alt}" />`;
+
+         button.addEventListener("click", () => {
+            mainImage.innerHTML = `<img src="${image.src}" alt="${image.alt}">`;
+
+            document.querySelectorAll("#thumbList button").forEach(button => {
+                button.classList.remove("active");
+            });
+
+            button.classList.add("active");
+        });
     thumbList.appendChild(button);
   });
 }
@@ -488,3 +510,6 @@ renderHome();
 renderShop();
 renderRecommended();
 saveCart();
+
+localStorage.removeItem("dangerfieldCart");
+location.reload();
