@@ -407,9 +407,7 @@ footer input{
 
 /* DESKTOP WIDTH RULE */
 @media (min-width:1200px){
-    body{max-width: 1440px; margin: 0 auto;
-    border-left: 1px solid #bcd;
-border-right: 1px solid #bcd}
+    body{margin: 0 auto;
 .page{padding-left: 70px; padding-right: 70px;}
 }
 
