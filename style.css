@@ -114,21 +114,18 @@ button:hover{
     position: relative;
     overflow: hidden;
 }
-.hero img{
-    max-width: 190px;
-    width: 45%;
-    height: auto;
-    object-fit: contain;
-}
-.hero:after{content:""; position: absolute;}
+
+.hero:after{content:""; position: absolute;
+inset: 0; background: repeating-linear-gradient(-8deg, transparent 0 22px, rgba(255,255,255,.06) 23px 26px);
+pointer-events: none;}
 .hero-copy{position: relative;z-index: 1;}
 .hero h1,.confirmation-page h1{
     font-family: Georgia, serif;
-    font-size:(54px,9vw,110px);
+    font-size:clamp(54px,8vw,100px);
     line-height: .82;
     text-transform: uppercase;
     margin: 0 0 18px;
-}
+    text-shadow: 5px 5px 0 rgba(0,0,0,.4);}
 .hero p{max-width: 460px; font-size: 20px;}
 .hero-actions{display: flex; gap: 15px;}
 .primary{
@@ -140,8 +137,23 @@ button:hover{
     background: white;
     text-transform: uppercase;
     font-weight: 900; padding: 12px 22px;}
-
-
+.hero-card-two{
+    position: relative;
+    z-index: 1;
+    margin: auto;
+    width: 350px; height: 420px;
+    border: 2px solid white;
+    box-shadow: 18px 18px 0 rgba(0,0,0,.35);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: transparent;
+    gap: 8px;
+    padding: 8px;
+}
+.hero-card-two img{
+    width: 100%; height: 100%; object-fit: cover; max-width: none; object-position: center; display: block;
+}
 main{min-height: 70vh;}
 .page{display: none; padding: 32px clamp(20px,4vw,70px);}
 .page.active{display: block}
@@ -361,6 +373,11 @@ main{min-height: 70vh;}
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 14px}
+.newsletter-names{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
 .confirmation-box{max-width: 700px; margin: 100px auto}
 .sparkles{font-size: 80px;}
 .confirmation-page h1{color: white;}
@@ -391,9 +408,25 @@ border-right: 1px solid #bcd}
     .desktop-nav{display: none;}
     .site-header{padding: 0 10px;}
     .page{padding: 18px 12px;}
-    .hero{
-    grid-template-columns: 1fr;
-    min-height: 640px;
-    padding: 32px 18px;
-}
+    .hero{grid-template-columns: 1fr; min-height: 640px;padding: 32px 18px;}
+    .hero-card{width: 230px; height: 280px; font-size: 42px;}
+    .category-grid,.chips{grid-template-columns: repeat(3, 1fr)}
+    .collection-grid,.product-detail,.cart-layout{grid-template-columns: 1fr;}
+    .product-row{grid-template-columns: repeat(2,1fr);}
+    .product-grid{grid-template-columns: repeat(2,1fr);}
+    .shop-layout{grid-template-columns: 1fr;}
+    .filters{display: none;}
+    .filters.open{display: flex;}
+    .gallery{grid-template-columns: 1fr;}
+    .thumbs{flex-direction: row;}
+    .thumbs button{height: 80px; flex: 1;}
+    .main-image{height: 440px;}
+    .search-box{flex-direction: column; margin-top: 70px;}
+    .two-col{grid-template-columns: 1fr;}
+    footer{grid-template-columns: 1fr 1fr;}
+    .brand{font-size: 18px;}
+    .hero h1{font-size: 64px;}
+    .cart-item{grid-template-columns: 70px 1fr;}
+    .cart-item button{grid-column: 2;}
+    .product-art{height: 220px;}
 }
