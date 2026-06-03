@@ -253,6 +253,8 @@ document.getElementById('menuBtn').addEventListener('click', () => document.getE
 document.getElementById ('closeMenu').addEventListener('click', () => document.getElementById('sideMenu').classList.remove('open'));
 /* FILTER BUTTON FOR MOBILE? */
 document.getElementById('toggleFilters').addEventListener('click', () => document.getElementById('filters').classList.toggle('open'));
+/* CLEAR FILTERS -> RESET ALL THE CHOSEN FILTERS */
+document.getElementById('clearFilters').addEventListener('click', () => { document.querySelectorAll('#filters input').forEach(input => input.checked = false); activeFilter = ''; renderShop(); });
 /* RELOAD THE PRODUCT GRID WHEN FILTER CHANGED */
 document.getElementById('sortSelect').addEventListener('change', renderShop);
 document.querySelectorAll('#filters input').forEach(input=> input.addEventListener('change', renderShop));

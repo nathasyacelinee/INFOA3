@@ -100,7 +100,7 @@ button:hover{
 /* HOME HERO SECTION: LARGE CAMPAIGN */
 .hero{
     min-height: 520px;
-    background: linear-gradient(rgba(20,100,115,.84),rgba(20,100,115,.84)),
+    background: linear-gradient(rgba(38, 157, 178, 0.84),rgba(20,100,115,.84)),
     radial-gradient(circle at 50% 30%, #7bc7d0 0 12%, transparent 10%),
     radial-gradient(circle at 30% 55%, #0c4651 0 22%, transparent 20%);
     color: white;
@@ -400,9 +400,56 @@ main{min-height: 70vh;}
     grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
-.confirmation-box{max-width: 700px; margin: 100px auto}
+.confirmation-box{max-width: 900px; margin: 0 auto; text-align: center;}
 .sparkles{font-size: 80px;}
 .confirmation-page h1{color: white;}
+
+/* SPARKLES -> PAYMENT CONFIRMATION */
+.sparkles{
+    font-size: 80px;
+    animation: sparklePulse 1.2s infinite alternate;
+    text-shadow: 4px 4px 0 rgba(0,0,0,.25);
+}
+
+@keyframes sparklePulse{
+    from{
+        transform: scale(1);
+        opacity: .75;
+    }
+    to{
+        transform: scale(1.15);
+        opacity: 1;
+    }
+}
+
+.confirmation-page{
+    position: relative;
+    overflow: hidden;
+}
+
+/* FLOATING SPARKLES */
+.floating-sparkles span{
+    position: absolute;
+    color: white;
+    font-size: 34px;
+    animation: floatSparkle 2s infinite ease-in-out;
+}
+
+.floating-sparkles span:nth-child(1){top: 20%; left: 20%;}
+.floating-sparkles span:nth-child(2){top: 30%; right: 18%; animation-delay: .5s;}
+.floating-sparkles span:nth-child(3){bottom: 25%; left: 28%; animation-delay: 1s;}
+.floating-sparkles span:nth-child(4){bottom: 30%; right: 24%; animation-delay: 1.5s;}
+
+@keyframes floatSparkle{
+    0%, 100%{
+        transform: translateY(0) scale(1);
+        opacity: .4;
+    }
+    50%{
+        transform: translateY(-18px) scale(1.25);
+        opacity: 1;
+    }
+}
 
 /* FOOTER GROUPS */
 footer{
