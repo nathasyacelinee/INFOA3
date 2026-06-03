@@ -49,7 +49,7 @@ const products = [
     {
     id: "shine-bright-goth-pant",
     name: "Shine Bright Goth Pant",
-    tags: ["Womens","Pant","Goth","Flared"],
+    tags: ["Womens","Pant","Goth","Flared","Sale"],
     price: 78.4, oldPrice: 98,
     sizes: ["XS","S","M","L","XL"],
     code: "BGFAB136",
@@ -67,7 +67,7 @@ const products = [
     {
     id: "shine-goth-skort",
     name: "Shine Bright Goth Skort",
-    tags: ["Skort","Womens","Goth","Mini"],
+    tags: ["Skort","Womens","Goth","Mini","Sale"],
     price: 67.2, oldPrice: 84,
     sizes: ["XS","S","M","L","XL"],
     code: "BGFAB135",
@@ -85,7 +85,7 @@ const products = [
     {
     id: "swarm-goth-cardigan",
     name: "Swarm Goth Cardigan",
-    tags: ["Cardigan","Womens","Goth","Pink","Cardigan"],
+    tags: ["Cardigan","Womens","Goth","Pink","Cardigan","Sale"],
     price: 78.4, oldPrice: 98,
     sizes: ["XS","S","M","L","XL"],
     code: "BGFAB152",
@@ -103,7 +103,7 @@ const products = [
     {
     id: "luna-tartan-midi-skirt",
     name: "Luna Goth Tartan Midi Skirt",
-    tags: ["Skirt","Womens","Goth","Pink","Midi"],
+    tags: ["Skirt","Womens","Goth","Pink","Midi","Sale"],
     price: 78.4, oldPrice: 98,
     sizes: ["XS","S","M","L","XL"],
     code: "BGFAB146",
@@ -121,7 +121,7 @@ const products = [
     {
     id: "faux-suede-cross-mj",
     name: "Faux Suede Cross Mary Janes",
-    tags: ["Shoes","Womens","Suede","Faux","Black"],
+    tags: ["Shoes","Womens","Suede","Faux","Black","Sale"],
     price: 79.2, oldPrice: 99,
     sizes: ["XS","S","M","L","XL"],
     code: "BWSAB001",
@@ -157,7 +157,7 @@ const products = [
     {
     id: "medieval-fairisle-knit",
     name: "Medieval Fairisle Knit",
-    tags: ["Knit","Womens","Sweater","Cream"],
+    tags: ["Knit","Womens","Sweater","Cream","Sale"],
     price: 86.4, oldPrice: 108,
     sizes: ["XS","S","M","L","XL"],
     code: "BGFAB104",
@@ -193,7 +193,7 @@ const products = [
     {
     id: "grace-goth-corset-top",
     name: "Grace Goth Corset Top",
-    tags: ["Corset","Womens","Red","Tops"],
+    tags: ["Corset","Womens","Red","Tops","Sale"],
     price: 62.4, oldPrice: 78,
     sizes: ["XS","S","M","L","XL"],
     code: "BGFAB155",
@@ -559,9 +559,13 @@ function renderCart(){
 
 /* SUGGESTED PRODUCTS UNDER THE CART */
 function renderRecommended(){
-    const row= document.getElementById('recommendedProducts');
-    row.innerHTML= '';
-    product.slice(1,5).forEach(product => row.appendChild(makeProductCard(product)));}
+    const row = document.getElementById('recommendedProducts');
+    row.innerHTML = '';
+
+    products.slice(1,5).forEach(product => {
+        row.appendChild(createProductCard(product));
+    });
+}
 
 /* Payment Submission */
 document.getElementById('paymentForm').addEventListener('submit', event => {
@@ -571,6 +575,3 @@ renderHome();
 renderShop();
 renderRecommended();
 saveCart();
-
-localStorage.removeItem("dangerfieldCart");
-location.reload();
