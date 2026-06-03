@@ -505,6 +505,9 @@ function renderRecommended(){
     row.innerHTML= '';
     product.slice(1,5).forEach(product => row.appendChild(makeProductCard(product)));}
 
+/* Payment Submission */
+document.getElementById('paymentForm').addEventListener('submit', event => {
+    event.preventDefault(); cart = []; saveCart(); showPage('confirmation'); });
 
 renderHome();
 renderShop();
