@@ -159,14 +159,23 @@
         <h1 id="detailName"></h1>
         <p class="price" id="detailPrice"></p>
         <p id="detailDiscount"></p>
-        <label>Size
-            <select id="sizeSelect"><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
-        </label>
-        <label>Quantity
-            <input id="qtyInput" type="number" min="1" value="1" />
-        </label>
+        <fieldset class="size-picker">
+            <legend>Size</legend>
+            <div id="sizeOptions"></div>
+          </fieldset>
+
+          <div class="quantity-picker">
+            <span>Quantity</span>
+            <div>
+              <button type="button" data-qty-step="-1">-</button>
+              <input id="qtyInput" type="number" min="1" value="1" />
+              <button type="button" data-qty-step="1">+</button>
+            </div>
+          </div>
+        <div class="detail-actions">
         <button class="primary" id="addCartBtn">Add to Cart</button>
-        <button class="secondary"id="buyNowBtn">Buy Now</button>
+        <button class="secondary"id="buyNowBtn">Buy Now</button>  
+        </div>
         <h2>Product Details</h2>
         <p id="detailDescription"></p>
         <ul id="detailList"></ul>

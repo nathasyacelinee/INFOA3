@@ -263,14 +263,14 @@ document.getElementById('addCartBtn').addEventListener('click', () => {
     addToCart(
         selectedProduct.id,
         document.getElementById('qtyInput').value,
-        document.getElementById('sizeSelect').value
+       selectedSize
     );
 });
 document.getElementById('buyNowBtn').addEventListener('click', () => {
     addToCart(
         selectedProduct.id,
         document.getElementById('qtyInput').value,
-        document.getElementById('sizeSelect').value
+        selectedSize
     );
     showPage('cart');
 });
@@ -283,6 +283,7 @@ document.body.addEventListener('click', event => {
     const addBtn = event.target.closest('[data-add]');
     const searchBtn = event.target.closest('[data-search]');
     const removeBtn = event.target.closest('[data-remove]');
+    const qtyStepBtn = event.target.closest('[data-qty-step]'); 
 
     if (pageBtn) showPage(pageBtn.dataset.page);
     if (filterBtn){activeFilter= filterBtn.dataset.filter; renderShop(); showPage('shop');}
@@ -292,6 +293,11 @@ document.body.addEventListener('click', event => {
     if (removeBtn){
         cart = cart.filter(item => !(item.id === removeBtn.dataset.remove && item.size === removeBtn.dataset.size));
         saveCart(); renderCart();}
+    if (qtyStepBtn){
+    const qtyInput = document.getElementById('qtyInput');
+    const newQty = Number(qtyInput.value) + Number(qtyStepBtn.dataset.qtyStep);
+    qtyInput.value = Math.max(1, newQty);
+}
 });
 
 document.body.addEventListener('change', event=> {
@@ -432,9 +438,34 @@ function renderGallery(product){
 /* CONTAINS ALL OF THE INFORMATION OF THE PRODUCT */
 function findProduct(id){
     return products.find(product => product.id === id) || products [0];}
-function openProduct(id){
+function renderSizeOptions(product){
+    const sizeOptions = document.getElementById("sizeOptions");
+    sizeOptions.innerHTML = "";
+
+    selectedSize = product.sizes[0];
+
+    product.sizes.forEach(size => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = size === selectedSize ? "size-option active" : "size-option";
+        button.textContent = size;
+
+        button.addEventListener("click", () => {
+            selectedSize = size;
+
+            document.querySelectorAll(".size-option").forEach(button => {
+                button.classList.remove("active");
+            });
+
+            button.classList.add("active");
+        });
+
+        sizeOptions.appendChild(button);
+    });
+}
+    function openProduct(id){
     selectedProduct= findProduct(id);
-    renderGallery(selectedProduct);
+    renderGallery(selectedProduct); renderSizeOptions(selectedProduct);
     document.getElementById("productCrumb").textContent = selectedProduct.name;
     document.getElementById("detailDiscount").textContent= selectedProduct.discount || "New";
     document.getElementById("detailName").textContent = selectedProduct.name;

@@ -236,7 +236,10 @@ main{min-height: 70vh;}
 .product-card{
     background: white;
     border: 2px solid var(--black);
-    padding: 8px;}
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
 .product-art{
     height: 200px;
     background: linear-gradient(145deg, #f7fbff, #bedde5);
@@ -245,10 +248,20 @@ main{min-height: 70vh;}
     border: 1px solid var(--black);
     margin-bottom: 10px;}
 .product-card h3{
-    font-size: 16px; margin: 8px 0;}
+    font-size: 16px;
+    margin: 8px 0;
+    min-height: 42px;
+}
 .price{font-weight: 900;}
+.product-card .price{
+    min-height: 34px;
+}
 .sale{color: var(--red); font-weight: 900;}
-.product-actions{display: flex; gap: 8px;}
+.product-actions{
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
 .product-actions button{
     flex: 1;
     padding: 8px;
@@ -347,6 +360,82 @@ main{min-height: 70vh;}
 }
 .thumbs button.active{
     border: 3px solid var(--gold);
+}
+
+/* SIZE & QUANTITY PICKER */
+.size-picker{
+    border: 0;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.size-picker legend,
+.quantity-picker > span{
+    display: block;
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+#sizeOptions{
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.size-option{
+    width: 52px;
+    height: 40px;
+    border: 2px solid var(--black);
+    background: var(--white);
+    color: var(--black);
+    font-size: 18px;
+    font-weight: 900;
+    box-shadow: none;
+}
+
+.size-option.active{
+    background: var(--black);
+    color: var(--white);
+}
+
+.quantity-picker{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 20px 0 28px;
+}
+
+.quantity-picker > div{
+    display: grid;
+    grid-template-columns: 40px 58px 40px;
+    height: 40px;
+}
+
+.quantity-picker button,
+.quantity-picker input{
+    height: 40px;
+    border: 2px solid var(--black);
+    background: var(--white);
+    color: var(--black);
+    text-align: center;
+    font-size: 18px;
+    font-weight: 900;
+    box-shadow: none;
+    margin: 0;
+}
+
+.quantity-picker input{
+    width: 58px;
+    border-left: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+.detail-actions{
+    display: flex;
+    gap: 18px;
+    margin: 22px 0;
 }
 
 /* PAYMENT FORM */
