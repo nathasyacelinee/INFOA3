@@ -267,7 +267,16 @@ main{min-height: 70vh;}
     min-height: 0;
     margin: 0 0 22px;
 }
-.sale{color: var(--red); font-weight: 900;}
+.old-price{
+    color: #666;
+    text-decoration: line-through;
+    font-weight: 700;
+    margin-right: 8px;
+}
+.current-price{
+    color: var(--red);
+    font-weight: 900;
+}
 .product-actions{
     display: flex;
     gap: 8px;

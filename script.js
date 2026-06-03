@@ -237,11 +237,11 @@ const products = [
     details: [
         "Soft cotton elastane stretchy jersey fabrication","Natural stretch","Rounded neckline","Short length flounce sleeves","Relaxed Fit","Straight cut"],
     gallery: [
-        {src: "ASSETS/FairyKidsTee", alt: "Joust Midi Skirt"},
-        {src: "ASSETS/JoustMidiSkirt2.png", alt: "Joust Midi Skirt 2"},
-        {src: "ASSETS/JoustMidiSkirt3.png", alt: "Joust Midi Skirt 3"},
-        {src: "ASSETS/JoustMidiSkirt4.png", alt: "Joust Midi Skirt 4"},
-        {src: "ASSETS/JoustMidiSkirt5.png", alt: "Joust Midi Skirt 5"}
+        {src: "ASSETS/FairyKidsTee.png", alt: "Fairy Kids Tee"},
+        {src: "ASSETS/FairyKidsTee2.png", alt: "Fairy Kids Tee 2"},
+        {src: "ASSETS/FairyKidsTee3.png", alt: "Fairy Kids Tee 3"},
+        {src: "ASSETS/FairyKidsTee4.png", alt: "Fairy Kids Tee 4"},
+        {src: "ASSETS/FairyKidsTee5.png", alt: "Fairy Kids Tee 5"}
     ]
     },
     
@@ -398,10 +398,13 @@ function productMedia(product){
 /* MAKE NORMAL PRICING -> SALE, BUT THE OLD PRICE STILL VISIBLE */
 function priceMarkup(product){
     if(!product.oldPrice){
-        return `<span>${money(product.price)}</span>`;
+        return `<span class="current-price">${money(product.price)}</span>`;
     }
 
-    return `${money(product.price)} <span class="sale">was ${money(product.oldPrice)}</span>`;
+    return `
+        <span class="old-price">AUD ${money(product.oldPrice)}</span>
+        <span class="current-price">${money(product.price)}</span>
+    `;
 }
 
 function renderProductList(wrapper, list){
