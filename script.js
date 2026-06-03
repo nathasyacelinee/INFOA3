@@ -31,7 +31,7 @@ const products = [
     {
     id: "midnight-gosh-mesh-top",
     name: "Midnight Gosh Mesh Top",
-    tags: ["Top","Womens","New","Sale","Mesh"],
+    tags: ["Tops","Womens","New","Sale","Mesh"],
     price: 38.4, oldPrice: 48,
     sizes: ["XS","S","M","L","XL"],
     code: "BGFAB154",
@@ -49,7 +49,7 @@ const products = [
     {
     id: "shine-bright-goth-pant",
     name: "Shine Bright Goth Pant",
-    tags: ["Top","Womens","Pant","Goth","Flared"],
+    tags: ["Womens","Pant","Goth","Flared"],
     price: 78.4, oldPrice: 98,
     sizes: ["XS","S","M","L","XL"],
     code: "BGFAB136",
@@ -193,7 +193,7 @@ const products = [
     {
     id: "grace-goth-corset-top",
     name: "Grace Goth Corset Top",
-    tags: ["Corset","Womens","Red","Top"],
+    tags: ["Corset","Womens","Red","Tops"],
     price: 62.4, oldPrice: 78,
     sizes: ["XS","S","M","L","XL"],
     code: "BGFAB155",
@@ -391,18 +391,21 @@ function renderProductList(wrapper, list){
 }
 
 function matchesFilter(product) {
-    const checkedFilters = [...document.querySelectorAll("#filters input:checked")].map(input=> input.value.toLowerCase());
+    const checkedFilters = [...document.querySelectorAll("#filters input:checked")]
+    .map(input=> input.value.toLowerCase());
+
     const searchText = activeFilter.toLowerCase();
-    const tagText= product.tags.join(" ").toLowerCase();
+    const tags = product.tags.map(tag => tag.toLowerCase());
+    const nameText = product.name.toLowerCase();
 
     const matchesMainFilter =
     !activeFilter ||
-    tagText.includes(searchText) ||
-    product.name.toLowerCase().includes(searchText);
+    tags.includes(searchText) ||
+    nameText.includes(searchText);
 
     const matchesChecked=
     checkedFilters.length === 0 ||
-    checkedFilters.some(filter=> tagText.includes(filter));
+    checkedFilters.some(filter=> tags.includes(filter));
 
     return matchesMainFilter && matchesChecked;
 }
@@ -467,7 +470,7 @@ function renderSizeOptions(product){
     selectedProduct= findProduct(id);
     renderGallery(selectedProduct); renderSizeOptions(selectedProduct);
     document.getElementById("productCrumb").textContent = selectedProduct.name;
-    document.getElementById("detailDiscount").textContent= selectedProduct.discount || "New";
+    document.getElementById("detailDiscount").textContent= selectedProduct.discount || "";
     document.getElementById("detailName").textContent = selectedProduct.name;
     document.getElementById("detailPrice").innerHTML = priceMarkup(selectedProduct);
     document.getElementById("detailDescription").textContent= selectedProduct.description;

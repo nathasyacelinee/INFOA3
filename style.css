@@ -100,7 +100,7 @@ button:hover{
 /* HOME HERO SECTION: LARGE CAMPAIGN */
 .hero{
     min-height: 520px;
-    background: linear-gradient(rgba(38, 157, 178, 0.84),rgba(20,100,115,.84)),
+    background: linear-gradient(rgba(22, 107, 122, 0.84),rgba(20,100,115,.84)),
     radial-gradient(circle at 50% 30%, #7bc7d0 0 12%, transparent 10%),
     radial-gradient(circle at 30% 55%, #0c4651 0 22%, transparent 20%);
     color: white;
@@ -189,8 +189,18 @@ main{min-height: 70vh;}
     place-items: end center;
     padding: 20px;
     position: relative;
+    cursor: pointer;
+    transition: .18s;
     overflow: hidden;
     background: white;}
+.collection-card:hover{
+    transform: translate(-1px,-1px);
+    box-shadow: var(--black) 5px 5px 0;
+}
+.collection-card:active{
+    transform: translate(2px,2px);
+    box-shadow: var(--black) 1px 1px 0;
+}
 .collection-card img{
     position: absolute;
     inset: 0;
@@ -249,12 +259,13 @@ main{min-height: 70vh;}
     margin-bottom: 10px;}
 .product-card h3{
     font-size: 16px;
-    margin: 8px 0;
-    min-height: 42px;
+    margin: 8px 0 15px;
+    min-height: 0;
 }
 .price{font-weight: 900;}
 .product-card .price{
-    min-height: 34px;
+    min-height: 0;
+    margin: 0 0 22px;
 }
 .sale{color: var(--red); font-weight: 900;}
 .product-actions{
@@ -265,7 +276,13 @@ main{min-height: 70vh;}
 .product-actions button{
     flex: 1;
     padding: 8px;
-    box-shadow: none;}
+    box-shadow: none;
+    transition: .18s;}
+.product-actions button:hover{
+    background: var(--gold);
+    color: var(--white);
+    border-color: var(--black);
+}
 
 /* SEARCH PAGE LAYOUT */
 .search-page,.payment-page,.confirmation-page{
@@ -283,7 +300,6 @@ main{min-height: 70vh;}
     gap: 12px;}
 .search-box input{
     flex: 1; padding: 18px; border: 2px solid var(--black)}
-
 
 /* SHOP PAGE HEADER -> BREADCRUMB, TITLE, FILTER TOGGLE */
 .shop-top{
