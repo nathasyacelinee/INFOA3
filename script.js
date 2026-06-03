@@ -225,7 +225,26 @@ const products = [
         {src: "ASSETS/JoustMidiSkirt4.png", alt: "Joust Midi Skirt 4"},
         {src: "ASSETS/JoustMidiSkirt5.png", alt: "Joust Midi Skirt 5"}
     ]
-    }
+    },
+    {
+    id: "fairy-kids-tee",
+    name: "Fairy Garden Kids Tee",
+    tags: ["Garden", "Kids","Tee","Fairy"],
+    price: 17.5, oldPrice: 35,
+    sizes: ["XS","S","M","L","XL"],
+    code: "PKGAA005",
+    description: "Cute and comfy kids t-shirt with frill sleeves in a pop of colour and a playful fairy print.",
+    details: [
+        "Soft cotton elastane stretchy jersey fabrication","Natural stretch","Rounded neckline","Short length flounce sleeves","Relaxed Fit","Straight cut"],
+    gallery: [
+        {src: "ASSETS/FairyKidsTee", alt: "Joust Midi Skirt"},
+        {src: "ASSETS/JoustMidiSkirt2.png", alt: "Joust Midi Skirt 2"},
+        {src: "ASSETS/JoustMidiSkirt3.png", alt: "Joust Midi Skirt 3"},
+        {src: "ASSETS/JoustMidiSkirt4.png", alt: "Joust Midi Skirt 4"},
+        {src: "ASSETS/JoustMidiSkirt5.png", alt: "Joust Midi Skirt 5"}
+    ]
+    },
+    
 ]
 
 /* ITEMS STAY SAVED EVENTHO WE REFRESHED THE PAGE */
