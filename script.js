@@ -375,7 +375,14 @@ document.body.addEventListener('click', event => {
     const removeBtn = event.target.closest('[data-remove]');
     const qtyStepBtn = event.target.closest('[data-qty-step]'); 
 
-    if (pageBtn) showPage(pageBtn.dataset.page);
+    if (pageBtn) {
+    if (pageBtn.dataset.page === 'shop') {
+        activeFilter = '';
+        document.querySelectorAll('#filters input').forEach(input => input.checked = false);
+    }
+
+    showPage(pageBtn.dataset.page);
+}
     if (filterBtn){activeFilter= filterBtn.dataset.filter; renderShop(); showPage('shop');}
     if (viewBtn) openProduct(viewBtn.dataset.view);
     if (addBtn){addToCart (addBtn.dataset.add); renderCart();}
@@ -442,7 +449,7 @@ function renderHome(){
 /* SHOWING THE CHOSEN FILTER/ SORT THAT USER CHOSE */
 function renderShop() {
   const visible = sortedProducts(products.filter(matchesFilter));
-  document.getElementById("shopTitle").textContent = activeFilter === "All" ? "Shop all" : activeFilter.toUpperCase();
+  document.getElementById("shopTitle").textContent = activeFilter ? activeFilter.toUpperCase(): "SHOP ALL";
   document.getElementById("resultCount").textContent = `${visible.length} product${visible.length === 1 ? "" : "s"} shown`;
   renderProductList(document.getElementById("shopProducts"), visible);
 }

@@ -126,7 +126,7 @@ pointer-events: none;}
     text-transform: uppercase;
     margin: 0 0 18px;
     text-shadow: 5px 5px 0 rgba(0,0,0,.4);}
-.hero p{max-width: 460px; font-size: 20px;}
+.hero p{max-width: 600px; font-size: 24px; font-weight: 700; line-height: 1.2; font-style: italic;}
 .hero-actions{display: flex; gap: 15px;}
 .primary{
     background: var(--gold);
@@ -402,9 +402,9 @@ main{min-height: 70vh;}
 .size-picker legend,
 .quantity-picker > span{
     display: block;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 900;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 #sizeOptions{
