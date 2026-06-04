@@ -298,6 +298,24 @@ const products = [
         {src: "ASSETS/FrillShorts5.png", alt: "Frill Shorts 5"}
     ]
     },
+    {
+    id: "goth-grunge-vest",
+    name: "Midnight Goth Grunge Vest",
+    tags: ["Vest", "Goth","Mens","Black"],
+    price: 118, oldPrice: 94.4,
+    sizes: ["XS","S","M","L","XL"],
+    code: "BBFAB080",
+    description: "A Denim Vest made for troublemakers who thrive in dark venues and live on the edge. No rules, no approval, just pure underground attitude stitched into every thread",
+    details: [
+        "Denim Vest","Relaxed Fit","Sleeveless style","High Neck","Zip Down Front","Front Patch Pockets","Silver snaps on front flap and pockets","Designed in Naarm/Melbourne by our apparel design team","Available in black"],
+    gallery: [
+        {src: "ASSETS/GrungeVest.png", alt: "Grunge Vest"},
+        {src: "ASSETS/GrungeVest2.png", alt: "Grunge Vest 2"},
+        {src: "ASSETS/GrungeVest3.png", alt: "Grunge Vest 3"},
+        {src: "ASSETS/GrungeVest4.png", alt: "Grunge Vest 4"},
+        {src: "ASSETS/GrungeVest5.png", alt: "Grunge Vest 5"}
+    ]
+    },
 ]
 
 /* ITEMS STAY SAVED EVENTHO WE REFRESHED THE PAGE */
