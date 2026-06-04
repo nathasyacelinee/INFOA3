@@ -334,6 +334,42 @@ const products = [
         {src: "ASSETS/OdetteJumper5.png", alt: "Odette Jumper 5"}
     ]
     },
+    {
+    id: "eyelet-jean",
+    name: "Mischief Eyelet Jean",
+    tags: ["Jean", "Bottoms","Mens","Sale"],
+    price: 59, oldPrice: 118,
+    sizes: ["XS","S","M","L","XL"],
+    code: "DBFAB085",
+    description: "Old-School Goth With A Modern Edge - These 'Mischief Eyelet' Jeans Are Structured, Sharp, And Up To No Good. Are You Ready To Haunt The Party?",
+    details: [
+        "Wide Leg Jean","Fitted Waistband","Eyelet Details on the front","Made from cotton denim fabric"],
+    gallery: [
+        {src: "ASSETS/EyeletJean.png", alt: "Mischief Eyelet Jean"},
+        {src: "ASSETS/EyeletJean2.png", alt: "Mischief Eyelet Jean 2"},
+        {src: "ASSETS/EyeletJean3.png", alt: "Mischief Eyelet Jean 3"},
+        {src: "ASSETS/EyeletJean4.png", alt: "Mischief Eyelet Jean 4"},
+        {src: "ASSETS/EyeletJean5.png", alt: "Mischief Eyelet Jean 5"}
+    ]
+    },
+    {
+    id: "antler-vest",
+    name: "Antler Check Vest",
+    tags: ["Antler", "Tops","Mens","Sale","Vest"],
+    price: 39, oldPrice: 78,
+    sizes: ["XS","S","M","L","XL"],
+    code: "DBFAB052",
+    description: "Whimsical Yet Trad Dangerfield Tartan - The 'Antler check vest' Will Turn Heads And Break Necks With Its Gothic Yet Tailored Vibe.",
+    details: [
+        "Checked Vest","Fitted Shape","Button Closure at front","Fully Lined","Made from cotton fabric","Available in multi"],
+    gallery: [
+        {src: "ASSETS/AntlerVest.png", alt: "Antler Check Vest"},
+        {src: "ASSETS/AntlerVest2.png", alt: "Antler Check Vest 2"},
+        {src: "ASSETS/AntlerVest3.png", alt: "Antler Check Vest 3"},
+        {src: "ASSETS/AntlerVest4.png", alt: "Antler Check Vest 4"},
+        {src: "ASSETS/AntlerVest5.png", alt: "Antler Check Vest 5"}
+    ]
+    }
 ]
 
 /* ITEMS STAY SAVED EVENTHO WE REFRESHED THE PAGE */
