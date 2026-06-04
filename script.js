@@ -302,7 +302,7 @@ const products = [
     id: "goth-grunge-vest",
     name: "Midnight Goth Grunge Vest",
     tags: ["Vest", "Goth","Mens","Black"],
-    price: 118, oldPrice: 94.4,
+    price: 94.4, oldPrice: 118,
     sizes: ["XS","S","M","L","XL"],
     code: "BBFAB080",
     description: "A Denim Vest made for troublemakers who thrive in dark venues and live on the edge. No rules, no approval, just pure underground attitude stitched into every thread",
