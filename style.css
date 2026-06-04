@@ -363,8 +363,8 @@ main{min-height: 70vh;}
 }
 .main-image:before{width: 30%; height: 78%;}
 .product-media{
-    height: 260px;
-    width: 180px;
+    height: 220px;
+    width: 160px;
     border: 1px solid var(--black);
     display: flex;
     align-items: center;

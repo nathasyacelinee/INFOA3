@@ -316,6 +316,24 @@ const products = [
         {src: "ASSETS/GrungeVest5.png", alt: "Grunge Vest 5"}
     ]
     },
+    {
+    id: "odette-knit-jumper",
+    name: "Odette Knit Jumper",
+    tags: ["Knit", "Jumper","Mens","Sale"],
+    price: 86.4, oldPrice: 108,
+    sizes: ["XS","S","M","L","XL"],
+    code: "DBFAB035",
+    description: "Scattered with starlight and drifting between shimmer and shadow The 'Odette Knit Jumper' feels like a night sky you can wear. Time to make your midnight wish for this to land in your wardrobe",
+    details: [
+        "Graphic Knit Jumper","Relaxed Fit","Long Sleeve","Features silver stars all over","Made from cotton & metallic yarn","Available in black"],
+    gallery: [
+        {src: "ASSETS/OdetteJumper.png", alt: "Odette Jumper"},
+        {src: "ASSETS/OdetteJumper2.png", alt: "Odette Jumper 2"},
+        {src: "ASSETS/OdetteJumper3.png", alt: "Odette Jumper 3"},
+        {src: "ASSETS/OdetteJumper4.png", alt: "Odette Jumper 4"},
+        {src: "ASSETS/OdetteJumper5.png", alt: "Odette Jumper 5"}
+    ]
+    },
 ]
 
 /* ITEMS STAY SAVED EVENTHO WE REFRESHED THE PAGE */
