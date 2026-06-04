@@ -341,6 +341,11 @@ main{min-height: 70vh;}
     grid-template-columns: 1fr 1fr;
     gap: 30px;
     align-items: start;}
+#detailName{
+    font-size: 32px;
+    line-height: 1.1;
+    margin-bottom: 18px;
+}
 .gallery{
     display: grid; grid-template-columns: 1fr 90px; gap: 16px;}
 .main-image{
@@ -358,17 +363,17 @@ main{min-height: 70vh;}
 }
 .main-image:before{width: 30%; height: 78%;}
 .product-media{
-    height: 220px;
-    width: 160px;
+    height: 260px;
+    width: 180px;
     border: 1px solid var(--black);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    margin-bottom: 10px;
+    margin-bottom: 0 auto 10px;
 }
 .product-media img {
-    width: 100%; height: 100%; object-fit: contain; display: block;
+    width: 100%; height: 100%; object-fit: cover; display: block; object-position: top center;
 }
 .thumbs{display: flex; flex-direction: column; gap: 12px; max-height: 598px; overflow-y: auto;}
 .thumbs button{
@@ -409,12 +414,12 @@ main{min-height: 70vh;}
 }
 
 .size-option{
-    width: 52px;
-    height: 40px;
+    width: 44px;
+    height: 34px;
     border: 2px solid var(--black);
     background: var(--white);
     color: var(--black);
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 900;
     box-shadow: none;
 }
@@ -427,31 +432,31 @@ main{min-height: 70vh;}
 .quantity-picker{
     display: flex;
     align-items: center;
-    gap: 18px;
-    margin: 20px 0 28px;
+    gap: 12px;
+    margin: 14px 0 22px;
 }
 
 .quantity-picker > div{
     display: grid;
-    grid-template-columns: 40px 58px 40px;
-    height: 40px;
+    grid-template-columns: 34px 48px 34px;
+    height: 34px;
 }
 
 .quantity-picker button,
 .quantity-picker input{
-    height: 40px;
+    height: 34px;
     border: 2px solid var(--black);
     background: var(--white);
     color: var(--black);
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 900;
     box-shadow: none;
     margin: 0;
 }
 
 .quantity-picker input{
-    width: 58px;
+    width: 48px;
     border-left: 0;
     border-right: 0;
     padding: 0;
@@ -569,9 +574,10 @@ main{min-height: 70vh;}
 footer{
     display:grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px; background: var(--light);
+    gap: 40px; background: var(--blue);
     border-top: 2px solid var(--black); padding: 35px clamp(40px,6vw,790px);}
 footer a{display: block; margin: 7px 0}
+footer a, footer h3, footer p{color: var(--white);}
 footer input{
     padding: 10px;
     border: 2px solid var(--black);

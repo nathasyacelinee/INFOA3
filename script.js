@@ -244,7 +244,60 @@ const products = [
         {src: "ASSETS/FairyKidsTee5.png", alt: "Fairy Kids Tee 5"}
     ]
     },
-    
+    {
+    id: "collections-kids-dress",
+    name: "Collections Kids Dress",
+    tags: ["Dress", "Kids","Sale","Fairy"],
+    price: 29.5, oldPrice: 59,
+    sizes: ["XS","S","M","L","XL"],
+    code: "PKGAA023",
+    description: "A retro 60's inspired girls dress in printed cotton pique, finished with a sweet peter pan collar.",
+    details: [
+        "Cotton honeycomb pique fabrication","Peter pan collar","Centre front hollow pleat","Centre back invisible zip opening","Fully lined in cotton voile","Features exclusive princess highway kids print"],
+    gallery: [
+        {src: "ASSETS/CKidsDress.png", alt: "Collections Kids Dress"},
+        {src: "ASSETS/CKidsDress2.png", alt: "Collections Kids Dress 2"},
+        {src: "ASSETS/CKidsDress3.png", alt: "Collections Kids Dress 3"},
+        {src: "ASSETS/CKidsDress4.png", alt: "Collections Kids Dress 4"},
+        {src: "ASSETS/CKidsDress5.png", alt: "Collections Kids Dress 5"}
+    ]
+    },
+    {
+    id: "llama-kids-sweater",
+    name: "Llama Kids Sweater",
+    tags: ["Sweater", "Kids","Llama","Blue"],
+    price: 22.5, oldPrice: 45,
+    sizes: ["XS","S","M","L","XL"],
+    code: "PKGZ096",
+    description: "Printed cotton sweater for kids",
+    details: [
+        "Soft cotton loopback terry fabrication","Rounded neckline","Relaxed fit","Perfect for everyday wear","Features exclusive princess highway kids print"],
+    gallery: [
+        {src: "ASSETS/LlamaSweater.png", alt: "Llama Sweater"},
+        {src: "ASSETS/LlamaSweater2.png", alt: "Llama Sweater 2"},
+        {src: "ASSETS/LlamaSweater3.png", alt: "Llama Sweater 3"},
+        {src: "ASSETS/LlamaSweater4.png", alt: "Llama Sweater 4"},
+        {src: "ASSETS/LlamaSweater5.png", alt: "Llama Sweater 5"}
+    ]
+    },
+    {
+    id: "fairies-kids-frill-shorts",
+    name: "Fairies Kids Frill Shorts",
+    tags: ["Shorts", "Kids","Fairies","Purple"],
+    price: 17.5, oldPrice: 35,
+    sizes: ["XS","S","M","L","XL"],
+    code: "PKGAA008",
+    description: "Printed ruffle kids shorts in cotton jersey",
+    details: [
+        "Soft cotton elastane stretchy fabrication","Frill front feature","Comfy elasticated waist","Side pockets","Features exclusive princess highway kids print"],
+    gallery: [
+        {src: "ASSETS/FrillShorts.png", alt: "Frill Shorts"},
+        {src: "ASSETS/FrillShorts2.png", alt: "Frill Shorts 2"},
+        {src: "ASSETS/FrillShorts3.png", alt: "Frill Shorts 3"},
+        {src: "ASSETS/FrillShorts4.png", alt: "Frill Shorts 4"},
+        {src: "ASSETS/FrillShorts5.png", alt: "Frill Shorts 5"}
+    ]
+    },
 ]
 
 /* ITEMS STAY SAVED EVENTHO WE REFRESHED THE PAGE */
